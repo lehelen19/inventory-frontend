@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { getFoodDetails } from '../../utilities/foodItems/foodItems-service';
 
 const FoodItemDetailPage = () => {
   const [foodDetails, setFoodDetails] = useState(null);
