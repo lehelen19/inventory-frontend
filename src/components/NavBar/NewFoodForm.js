@@ -1,6 +1,7 @@
 import { useState } from 'react';
+import { createFoodItem } from '../../utilities/foodItems/foodItems-service';
 
-const NewFoodForm = () => {
+const NewFoodForm = (id) => {
   const [newFood, setNewFood] = useState({
     foodName: '',
     quantity: null,
@@ -13,7 +14,7 @@ const NewFoodForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      createFoodItem(newFood);
+      createFoodItem(id, newFood);
       setNewFood('');
     } catch {
       console.log('error');
