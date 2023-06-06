@@ -15,7 +15,13 @@ const FoodItemDetailPage = () => {
     }
   };
 
-  return <div>FoodItemDetailPage</div>;
+  const loading = () => <p>Loading food item details...</p>;
+
+  const loaded = () => {
+    return <div>{JSON.stringify(foodDetails)}</div>;
+  };
+
+  return <div>{foodDetails ? loaded() : loading()}</div>;
 };
 
 export default FoodItemDetailPage;
