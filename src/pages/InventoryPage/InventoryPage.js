@@ -13,10 +13,14 @@ const InventoryPage = () => {
     }
   };
 
+  useEffect(() => {
+    fetchCategories();
+  });
+
   return (
     <>
       <h1>Inventory Page</h1>
-      <div>Categories go here</div>
+      {JSON.stringify(categories)}
     </>
   );
 };
