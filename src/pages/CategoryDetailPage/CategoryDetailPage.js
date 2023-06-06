@@ -31,7 +31,7 @@ const CategoryDetailPage = () => {
         {categoryDetails.foodItems.map((item) => (
           <div>
             <p>
-              <Link to={`/items/:id`}>
+              <Link to={`/items/${item._id}`}>
                 {item.name} ({item.quantity})
               </Link>
             </p>
