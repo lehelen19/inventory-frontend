@@ -44,6 +44,7 @@ const NewFoodForm = ({ id, fetchCategoryDetails }) => {
         id="foodQuantity"
         value={newFood.foodQuantity}
         onChange={handleChange}
+        required
       ></input>
       <button>Add Food Item</button>
     </form>
