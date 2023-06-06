@@ -16,7 +16,7 @@ const InventoryPage = () => {
 
   useEffect(() => {
     fetchCategories();
-  });
+  }, []);
 
   const loading = () => {
     return <p>Loading categories...</p>;
