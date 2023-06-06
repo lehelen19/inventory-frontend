@@ -7,16 +7,16 @@ const CategoryDetailPage = () => {
   const [categoryDetails, setCategoryDetails] = useState(null);
   const { id } = useParams();
 
-  useEffect(() => {
-    const fetchCategoryDetails = async () => {
-      try {
-        const foundCategory = await getCategoryDetails(id);
-        setCategoryDetails(foundCategory);
-      } catch {
-        console.log('ERROR');
-      }
-    };
+  const fetchCategoryDetails = async () => {
+    try {
+      const foundCategory = await getCategoryDetails(id);
+      setCategoryDetails(foundCategory);
+    } catch {
+      console.log('ERROR');
+    }
+  };
 
+  useEffect(() => {
     fetchCategoryDetails();
   }, [id]);
 
@@ -45,7 +45,7 @@ const CategoryDetailPage = () => {
   return (
     <div>
       {categoryDetails ? loaded() : loading()}
-      <NewFoodForm id={id} />
+      <NewFoodForm id={id} fetchCategoryDetails={fetchCategoryDetails} />
     </div>
   );
 };

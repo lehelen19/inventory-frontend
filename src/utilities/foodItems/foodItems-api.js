@@ -7,7 +7,6 @@ export function getFoodDetails(id) {
 }
 
 export function createFoodItem(id, foodItemDetails) {
-  console.log(foodItemDetails);
   return sendRequest(`${BASE_URL}/categories/${id}/items`, 'POST', {
     name: foodItemDetails.foodName,
     quantity: foodItemDetails.foodQuantity,

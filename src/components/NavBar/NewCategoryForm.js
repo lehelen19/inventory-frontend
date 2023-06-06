@@ -11,7 +11,7 @@ const CategoryForm = ({ fetchCategories }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      createCategory(categoryName);
+      await createCategory(categoryName);
       setCategoryName('');
       fetchCategories();
     } catch {
