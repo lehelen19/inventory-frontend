@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { getCategoryDetails } from '../../utilities/categories/categories-service';
 
 const CategoryDetailPage = () => {
   const [categoryDetails, setCategoryDetails] = useState(null);
@@ -14,7 +15,31 @@ const CategoryDetailPage = () => {
     }
   };
 
-  return <div>CategoryDetailPage</div>;
+  useEffect(() => {
+    fetchCategoryDetails();
+  }, []);
+
+  const loading = () => {
+    return <p>Loading category details...</p>;
+  };
+
+  const loaded = () => {
+    return (
+      <div>
+        <h1>{categoryDetails.name}</h1>
+
+        {categoryDetails.foodItems.map((item) => (
+          <div>
+            <p>
+              {item.name} ({item.quantity})
+            </p>
+          </div>
+        ))}
+      </div>
+    );
+  };
+
+  return <div>{categoryDetails ? loaded() : loading()}</div>;
 };
 
 export default CategoryDetailPage;
