@@ -25,7 +25,24 @@ const FoodItemDetailPage = () => {
     return (
       <div>
         <h1>{foodDetails.name}</h1>
-        <p>{foodDetails.quantity}</p>
+        <p>Quantity: {foodDetails.quantity}</p>
+
+        <h2>Nutritional Value for {foodDetails.food_name}</h2>
+        <p>Serving size: {foodDetails.serving_qty}</p>
+        <p>Calories: {foodDetails.nf_calories}</p>
+        <p>Total fat: {foodDetails.nf_total_fat}</p>
+        <p>Saturated fat: {foodDetails.nf_saturated_fat}</p>
+        <p>Cholesterol: {foodDetails.nf_cholesterol}</p>
+        <p>Sodium: {foodDetails.nf_sodium}</p>
+        <p>Total carbohydrates: {foodDetails.nf_total_carbohydrate}</p>
+        <p>Dietary fiber: {foodDetails.nf_dietary_fiber}</p>
+        <p>Sugars: {foodDetails.nf_sugars}</p>
+        <p>Protein: {foodDetails.nf_protein}</p>
+        <p>Potassium: {foodDetails.nf_potassium}</p>
+        <img
+          src={`${foodDetails.photo.thumb}`}
+          alt={`Thumbnail of ${foodDetails.food_name}`}
+        />
       </div>
     );
   };
