@@ -5,7 +5,7 @@ export async function getCategories() {
   return categories;
 }
 
-export async function getCategoryDetails() {
-  const categoryDetails = await categoriesAPI.getCategoryDetails();
+export async function getCategoryDetails(id) {
+  const categoryDetails = await categoriesAPI.getCategoryDetails(id);
   return categoryDetails;
 }
