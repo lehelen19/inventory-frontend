@@ -28,7 +28,10 @@ const FoodItemDetailPage = () => {
         <p>Quantity: {foodDetails.quantity}</p>
 
         <h2>Nutritional Value for {foodDetails.food_name}</h2>
-        <p>Serving size: {foodDetails.serving_qty}</p>
+        <p>
+          Serving size: {foodDetails.serving_qty} ({foodDetails.serving_unit} or{' '}
+          {foodDetails.serving_weight_grams} grams)
+        </p>
         <p>Calories: {foodDetails.nf_calories}</p>
         <p>Total fat: {foodDetails.nf_total_fat}</p>
         <p>Saturated fat: {foodDetails.nf_saturated_fat}</p>
