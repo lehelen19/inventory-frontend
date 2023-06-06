@@ -6,14 +6,18 @@ const FoodItemDetailPage = () => {
   const [foodDetails, setFoodDetails] = useState(null);
   const { id } = useParams();
 
-  const fetchFoodDetails = async () => {
-    try {
-      const foundFoodDetails = await getFoodDetails(id);
-      setFoodDetails(foundFoodDetails);
-    } catch {
-      console.log('error getting food details');
-    }
-  };
+  useEffect(() => {
+    const fetchFoodDetails = async () => {
+      try {
+        const foundFoodDetails = await getFoodDetails(id);
+        setFoodDetails(foundFoodDetails);
+      } catch {
+        console.log('error getting food details');
+      }
+    };
+
+    fetchFoodDetails();
+  }, [id]);
 
   const loading = () => <p>Loading food item details...</p>;
 
