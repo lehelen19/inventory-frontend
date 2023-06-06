@@ -1,4 +1,4 @@
-import { getToken } from './users-service';
+import { getToken } from './users/users-service';
 
 export default async function sendRequest(url, method = 'GET', payload = null) {
   const options = { method };
