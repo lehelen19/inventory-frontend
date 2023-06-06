@@ -23,7 +23,10 @@ const InventoryPage = () => {
 
   const loaded = () => {
     return categories.map((category) => (
-      <p key={category._id}>{category.name}</p>
+      <div key={category._id}>
+        <p>{category.name}</p>
+        <p>{JSON.stringify(category.foodItems)}</p>
+      </div>
     ));
   };
 
