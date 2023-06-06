@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { getCategories } from '../../utilities/categories/categories-service';
+import { Link } from 'react-router-dom';
 
 const InventoryPage = () => {
   const [categories, setCategories] = useState(null);
@@ -25,7 +26,7 @@ const InventoryPage = () => {
     return categories.map((category) => (
       <div key={category._id}>
         <p>{category.name}</p>
-        <p>{JSON.stringify(category.foodItems)}</p>
+        <Link to={`/categories/${category._id}`}>Details</Link>
       </div>
     ));
   };
