@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { createFoodItem } from '../../utilities/foodItems/foodItems-service';
 
-const NewFoodForm = (id) => {
+const NewFoodForm = ({ id }) => {
   const [newFood, setNewFood] = useState({
     foodName: '',
-    quantity: null,
+    foodQuantity: 0,
   });
 
   const handleChange = (e) => {
@@ -14,6 +14,8 @@ const NewFoodForm = (id) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      console.log(id);
+      console.log(newFood);
       createFoodItem(id, newFood);
       setNewFood('');
     } catch {
@@ -33,12 +35,12 @@ const NewFoodForm = (id) => {
         onChange={handleChange}
         required
       ></input>
-      <label htmlFor="quantity">Food item name</label>
+      <label htmlFor="foodQuantity">Quantity</label>
       <input
         type="number"
         name="foodQuantity"
         id="foodQuantity"
-        value={newFood.quantity}
+        value={newFood.foodQuantity}
         onChange={handleChange}
       ></input>
       <button>Add Food Item</button>

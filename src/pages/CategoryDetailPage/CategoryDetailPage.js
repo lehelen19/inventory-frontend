@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { getCategoryDetails } from '../../utilities/categories/categories-service';
+import NewFoodForm from '../../components/NavBar/NewFoodForm';
 
 const CategoryDetailPage = () => {
   const [categoryDetails, setCategoryDetails] = useState(null);
@@ -41,7 +42,12 @@ const CategoryDetailPage = () => {
     );
   };
 
-  return <div>{categoryDetails ? loaded() : loading()}</div>;
+  return (
+    <div>
+      {categoryDetails ? loaded() : loading()}
+      <NewFoodForm id={id} />
+    </div>
+  );
 };
 
 export default CategoryDetailPage;
