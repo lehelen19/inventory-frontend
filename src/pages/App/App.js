@@ -5,6 +5,7 @@ import Navbar from '../../components/NavBar/NavBar';
 import InventoryPage from '../InventoryPage/InventoryPage';
 import AboutPage from '../AboutPage/AboutPage';
 import CategoryDetailPage from '../CategoryDetailPage/CategoryDetailPage';
+import FoodItemDetailPage from '../FoodItemDetailPage/FoodItemDetailPage';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             path="/categories/:id"
             element={<CategoryDetailPage />}
           ></Route>
+          <Route path="/items/:id" element={<FoodItemDetailPage />}></Route>
         </Routes>
       </>
     </div>
