@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { getCategories } from '../../utilities/categories/categories-service';
 import { Link } from 'react-router-dom';
+import CategoryForm from '../../components/NavBar/CategoryForm';
 
 const InventoryPage = () => {
   const [categories, setCategories] = useState(null);
@@ -34,6 +35,7 @@ const InventoryPage = () => {
   return (
     <>
       <h1>Inventory Page</h1>
+      <CategoryForm fetchCategories={fetchCategories} />
       {categories ? loaded() : loading()}
     </>
   );
