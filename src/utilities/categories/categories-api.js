@@ -9,3 +9,7 @@ export function getCategories() {
 export function getCategoryDetails(id) {
   return sendRequest(`${BASE_URL}/${id}`);
 }
+
+export function createCategory(name) {
+  return sendRequest(BASE_URL, 'POST');
+}
