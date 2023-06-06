@@ -17,10 +17,20 @@ const InventoryPage = () => {
     fetchCategories();
   });
 
+  const loading = () => {
+    return <p>Loading categories...</p>;
+  };
+
+  const loaded = () => {
+    return categories.map((category) => (
+      <p key={category._id}>{category.name}</p>
+    ));
+  };
+
   return (
     <>
       <h1>Inventory Page</h1>
-      {JSON.stringify(categories)}
+      {categories ? loaded() : loading()}
     </>
   );
 };
