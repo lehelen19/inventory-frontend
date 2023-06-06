@@ -22,7 +22,12 @@ const FoodItemDetailPage = () => {
   const loading = () => <p>Loading food item details...</p>;
 
   const loaded = () => {
-    return <div>{JSON.stringify(foodDetails)}</div>;
+    return (
+      <div>
+        <h1>{foodDetails.name}</h1>
+        <p>{foodDetails.quantity}</p>
+      </div>
+    );
   };
 
   return <div>{foodDetails ? loaded() : loading()}</div>;
