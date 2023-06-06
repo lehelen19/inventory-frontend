@@ -1,23 +1,23 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { getCategoryDetails } from '../../utilities/categories/categories-service';
 
 const CategoryDetailPage = () => {
   const [categoryDetails, setCategoryDetails] = useState(null);
   const { id } = useParams();
 
-  const fetchCategoryDetails = async () => {
-    try {
-      const foundCategory = await getCategoryDetails(id);
-      setCategoryDetails(foundCategory);
-    } catch {
-      console.log('ERROR');
-    }
-  };
-
   useEffect(() => {
+    const fetchCategoryDetails = async () => {
+      try {
+        const foundCategory = await getCategoryDetails(id);
+        setCategoryDetails(foundCategory);
+      } catch {
+        console.log('ERROR');
+      }
+    };
+
     fetchCategoryDetails();
-  }, []);
+  }, [id]);
 
   const loading = () => {
     return <p>Loading category details...</p>;
@@ -31,7 +31,9 @@ const CategoryDetailPage = () => {
         {categoryDetails.foodItems.map((item) => (
           <div>
             <p>
-              {item.name} ({item.quantity})
+              <Link to={`/items/:id`}>
+                {item.name} ({item.quantity})
+              </Link>
             </p>
           </div>
         ))}
