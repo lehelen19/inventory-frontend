@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getCategories } from '../../utilities/categories/categories-api';
+import { getCategories } from '../../utilities/categories/categories-service';
 
 const InventoryPage = () => {
   const [categories, setCategories] = useState(null);
