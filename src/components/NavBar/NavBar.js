@@ -4,9 +4,8 @@ const Navbar = () => {
   return (
     <nav>
       <Link to="/">Logo</Link>
-      <a href="">About</a>
+      <Link to="/about">About</Link>
       <Link to="/categories">Inventory</Link>
-      <a href="">Admin Login</a>
     </nav>
   );
 };

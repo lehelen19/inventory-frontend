@@ -1,5 +1,3 @@
-// /categories
-
 import React from 'react';
 
 const InventoryPage = () => {
