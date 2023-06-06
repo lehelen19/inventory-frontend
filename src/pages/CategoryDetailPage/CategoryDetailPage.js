@@ -29,7 +29,7 @@ const CategoryDetailPage = () => {
         <h1>{categoryDetails.name}</h1>
 
         {categoryDetails.foodItems.map((item) => (
-          <div>
+          <div key={item._id}>
             <p>
               <Link to={`/items/${item._id}`}>
                 {item.name} ({item.quantity})
