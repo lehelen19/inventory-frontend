@@ -1,27 +1,36 @@
-import { useRef, useCallback } from 'react';
+import { useState } from 'react';
 import { createCategory } from '../../utilities/categories/categories-service';
 
 const CategoryForm = ({ fetchCategories }) => {
-  const form = useRef();
+  const [categoryName, setCategoryName] = useState('');
 
-  const handleSubmit = useCallback(
-    async (e) => {
-      e.preventDefault();
-      const { name } = e.target;
-      try {
-        createCategory(name);
-      } catch {
-        console.log('error');
-      }
+  const handleChange = (e) => {
+    setCategoryName(e.target.value);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      createCategory(categoryName);
+      setCategoryName('');
       fetchCategories();
-      console.log('rerender');
-    },
-    [fetchCategories]
-  );
+    } catch {
+      console.log('error');
+    }
+  };
 
   return (
     <form onSubmit={handleSubmit}>
-      <input type="text" placeholder="Category name..."></input>
+      <label htmlFor="name">Category name</label>
+      <input
+        type="text"
+        placeholder="Category name..."
+        name="name"
+        id="name"
+        value={categoryName}
+        onChange={handleChange}
+        required
+      ></input>
       <button>Add Category</button>
     </form>
   );

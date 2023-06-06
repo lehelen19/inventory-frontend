@@ -11,5 +11,5 @@ export function getCategoryDetails(id) {
 }
 
 export function createCategory(name) {
-  return sendRequest(BASE_URL, 'POST');
+  return sendRequest(BASE_URL, 'POST', { name });
 }
