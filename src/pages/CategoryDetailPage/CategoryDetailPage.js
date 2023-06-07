@@ -6,6 +6,7 @@ import NewFoodForm from '../../components/NavBar/NewFoodForm';
 
 const CategoryDetailPage = () => {
   const [categoryDetails, setCategoryDetails] = useState(null);
+  const [editingInput, setEditingInput] = useState(null);
   const { id } = useParams();
 
   const fetchCategoryDetails = async () => {
@@ -30,6 +31,22 @@ const CategoryDetailPage = () => {
     }
   };
 
+  const handleEditFoodItem = async (id) => {
+    const foodItem = categoryDetails.foodItems.find((item) => item._id === id);
+    if (foodItem) {
+      setEditingInput({
+        _id: id,
+        name: foodItem.name,
+        quantity: foodItem.quantity,
+      });
+    }
+    console.log(editingInput);
+  };
+
+  const handleEditChange = () => {
+    console.log('hi');
+  };
+
   const loading = () => {
     return <p>Loading category details...</p>;
   };
@@ -38,17 +55,36 @@ const CategoryDetailPage = () => {
     return (
       <div>
         <h1>{categoryDetails.name}</h1>
-
         {categoryDetails.foodItems.map((item) => (
           <div key={item._id}>
-            <p>
-              <Link to={`/items/${item._id}`}>
-                {item.name} ({item.quantity})
-              </Link>
-              <button onClick={() => handleDeleteFoodItem(item._id)}>
-                Delete
-              </button>
-            </p>
+            {editingInput && editingInput._id === item._id ? (
+              <form>
+                <input
+                  type="text"
+                  value={editingInput.name}
+                  onChange={handleEditChange}
+                  autoFocus
+                />
+                <input
+                  type="number"
+                  value={editingInput.quantity}
+                  onChange={handleEditChange}
+                />
+                <button>Save</button>
+              </form>
+            ) : (
+              <>
+                <Link to={`/items/${item._id}`}>
+                  {item.name} ({item.quantity})
+                </Link>
+                <button onClick={() => handleEditFoodItem(item._id)}>
+                  Edit
+                </button>
+              </>
+            )}
+            <button onClick={() => handleDeleteFoodItem(item._id)}>
+              Delete
+            </button>
           </div>
         ))}
       </div>
