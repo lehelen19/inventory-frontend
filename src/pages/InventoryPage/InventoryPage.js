@@ -9,7 +9,7 @@ import CategoryForm from '../../components/NavBar/NewCategoryForm';
 const InventoryPage = () => {
   const [categories, setCategories] = useState(null);
   const [deleteId, setDeleteId] = useState(null);
-  const [nameInput, setNameInput] = useState(null);
+  const [editCategoryInput, setEditCategoryInput] = useState(null);
 
   const fetchCategories = async () => {
     try {
@@ -41,7 +41,7 @@ const InventoryPage = () => {
   const handleEditStart = (id) => {
     const category = categories.find((category) => category._id === id);
     if (category) {
-      setNameInput({ id, name: category.name });
+      setEditCategoryInput({ id, name: category.name });
     }
   };
 
@@ -52,24 +52,43 @@ const InventoryPage = () => {
   const loaded = () => {
     return categories.map((category) => (
       <div key={category._id}>
-        {deleteId === category._id ? (
-          <div>
-            <p>Are you sure you want to delete the {category.name} category?</p>
-            <button onClick={() => handleConfirmDelete(category._id)}>
-              Delete
-            </button>
-            <button onClick={() => setDeleteId(null)}>Cancel</button>
-          </div>
-        ) : (
-          <>
-            <p>{category.name}</p>
-            <Link to={`/categories/${category._id}`}>Details</Link>
-            <button onClick={() => handleEditStart(category._id)}>Edit</button>
-            <button onClick={() => handleCheckDelete(category._id)}>
-              Delete
-            </button>
-          </>
-        )}
+        {(() => {
+          if (deleteId === category._id) {
+            return (
+              <div>
+                <p>
+                  Are you sure you want to delete the {category.name} category?
+                </p>
+                <button onClick={() => handleConfirmDelete(category._id)}>
+                  Delete
+                </button>
+                <button onClick={() => setDeleteId(null)}>Cancel</button>
+              </div>
+            );
+          } else if (
+            editCategoryInput &&
+            editCategoryInput.id === category._id
+          ) {
+            return (
+              <div>
+                <p>Input would go here</p>
+              </div>
+            );
+          } else {
+            return (
+              <>
+                <p>{category.name}</p>
+                <Link to={`/categories/${category._id}`}>Details</Link>
+                <button onClick={() => handleEditStart(category._id)}>
+                  Edit
+                </button>
+                <button onClick={() => handleCheckDelete(category._id)}>
+                  Delete
+                </button>
+              </>
+            );
+          }
+        })()}
       </div>
     ));
   };
