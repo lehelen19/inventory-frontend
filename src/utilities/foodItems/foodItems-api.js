@@ -17,9 +17,9 @@ export function deleteFoodItem(id) {
   return sendRequest(`${BASE_URL}/items/${id}`, 'DELETE');
 }
 
-export function updateFoodItem(id, foodItemDetails) {
-  const { name, quantity } = foodItemDetails;
-  return sendRequest(`${BASE_URL}/items/${id}`, 'PUT', {
+export function updateFoodItem(foodItemDetails) {
+  const { name, quantity, _id } = foodItemDetails;
+  return sendRequest(`${BASE_URL}/items/${_id}`, 'PUT', {
     name,
     quantity,
   });

@@ -15,9 +15,8 @@ export async function deleteFoodItem(id) {
   return returnedCategories;
 }
 
-export async function updateFoodItem(id, foodItemDetails) {
+export async function updateFoodItem(foodItemDetails) {
   const returnedCategoryDetails = await foodItemsAPI.updateFoodItem(
-    id,
     foodItemDetails
   );
   return returnedCategoryDetails;
