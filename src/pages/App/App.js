@@ -28,7 +28,10 @@ function App() {
             path="/categories/:id"
             element={<CategoryDetailPage user={user} />}
           ></Route>
-          <Route path="/items/:id" element={<FoodItemDetailPage />}></Route>
+          <Route
+            path="/items/:id"
+            element={<FoodItemDetailPage user={user} />}
+          ></Route>
           <Route
             path="/authenticate"
             element={<AuthPage setUser={setUser} />}

@@ -6,7 +6,7 @@ import {
   deleteFoodItem,
 } from '../../utilities/foodItems/foodItems-service';
 
-const FoodItemDetailPage = () => {
+const FoodItemDetailPage = ({ user }) => {
   const [foodDetails, setFoodDetails] = useState(null);
   const [confirmDelete, setConfirmDelete] = useState(false);
   const { id } = useParams();
@@ -63,17 +63,23 @@ const FoodItemDetailPage = () => {
             alt={`Thumbnail of ${foodDetails.food_name}`}
           />
         </div>
-        {confirmDelete ? (
-          <>
-            <p>Are you sure you want to delete {foodDetails.name}?</p>
-            <button onClick={handleDelete}>Delete</button>
-            <button onClick={() => setConfirmDelete(false)}>Cancel</button>
-          </>
-        ) : (
-          <button onClick={() => setConfirmDelete(true)}>
-            Delete {foodDetails.name}
-          </button>
-        )}
+        {(() => {
+          if (user && confirmDelete) {
+            return (
+              <>
+                <p>Are you sure you want to delete {foodDetails.name}?</p>
+                <button onClick={handleDelete}>Delete</button>
+                <button onClick={() => setConfirmDelete(false)}>Cancel</button>
+              </>
+            );
+          } else if (user && !confirmDelete) {
+            return (
+              <button onClick={() => setConfirmDelete(true)}>
+                Delete {foodDetails.name}
+              </button>
+            );
+          }
+        })()}
       </>
     );
   };
