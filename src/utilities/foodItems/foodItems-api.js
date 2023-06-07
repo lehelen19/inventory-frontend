@@ -12,3 +12,7 @@ export function createFoodItem(id, foodItemDetails) {
     quantity: foodItemDetails.foodQuantity,
   });
 }
+
+export function deleteFoodItem(id) {
+  return sendRequest(`${BASE_URL}/items/${id}`, 'DELETE');
+}

@@ -9,3 +9,8 @@ export async function createFoodItem(id, newFoodDetails) {
   const foodItem = await foodItemsAPI.createFoodItem(id, newFoodDetails);
   return foodItem;
 }
+
+export async function deleteFoodItem(id) {
+  const returnedCategories = await foodItemsAPI.deleteFoodItem(id);
+  return returnedCategories;
+}
