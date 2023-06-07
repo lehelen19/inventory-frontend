@@ -31,7 +31,7 @@ const CategoryDetailPage = () => {
     }
   };
 
-  const handleEditFoodItem = async (id) => {
+  const handleEditStart = (id) => {
     const foodItem = categoryDetails.foodItems.find((item) => item._id === id);
     if (foodItem) {
       setEditingInput({
@@ -40,11 +40,15 @@ const CategoryDetailPage = () => {
         quantity: foodItem.quantity,
       });
     }
-    console.log(editingInput);
   };
 
-  const handleEditChange = () => {
-    console.log('hi');
+  const handleEditChange = (e) => {
+    setEditingInput({ ...editingInput, [e.target.name]: e.target.value });
+  };
+
+  const handleEditSubmit = async (e) => {
+    e.preventDefault();
+    console.log(editingInput);
   };
 
   const loading = () => {
@@ -58,15 +62,17 @@ const CategoryDetailPage = () => {
         {categoryDetails.foodItems.map((item) => (
           <div key={item._id}>
             {editingInput && editingInput._id === item._id ? (
-              <form>
+              <form onSubmit={handleEditSubmit}>
                 <input
                   type="text"
+                  name="name"
                   value={editingInput.name}
                   onChange={handleEditChange}
                   autoFocus
                 />
                 <input
                   type="number"
+                  name="quantity"
                   value={editingInput.quantity}
                   onChange={handleEditChange}
                 />
@@ -77,14 +83,12 @@ const CategoryDetailPage = () => {
                 <Link to={`/items/${item._id}`}>
                   {item.name} ({item.quantity})
                 </Link>
-                <button onClick={() => handleEditFoodItem(item._id)}>
-                  Edit
+                <button onClick={() => handleEditStart(item._id)}>Edit</button>
+                <button onClick={() => handleDeleteFoodItem(item._id)}>
+                  Delete
                 </button>
               </>
             )}
-            <button onClick={() => handleDeleteFoodItem(item._id)}>
-              Delete
-            </button>
           </div>
         ))}
       </div>
