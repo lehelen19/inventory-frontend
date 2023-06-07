@@ -20,7 +20,10 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />}></Route>
           <Route path="/about" element={<AboutPage />}></Route>
-          <Route path="/categories" element={<InventoryPage />}></Route>
+          <Route
+            path="/categories"
+            element={<InventoryPage user={user} />}
+          ></Route>
           <Route
             path="/categories/:id"
             element={<CategoryDetailPage user={user} />}

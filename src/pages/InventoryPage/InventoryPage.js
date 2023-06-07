@@ -7,7 +7,7 @@ import {
 } from '../../utilities/categories/categories-service';
 import CategoryForm from '../../components/NavBar/NewCategoryForm';
 
-const InventoryPage = () => {
+const InventoryPage = ({ user }) => {
   const [categories, setCategories] = useState(null);
   const [deleteId, setDeleteId] = useState(null);
   const [editCategoryInput, setEditCategoryInput] = useState(null);
@@ -72,7 +72,7 @@ const InventoryPage = () => {
     return categories.map((category) => (
       <div key={category._id}>
         {(() => {
-          if (deleteId === category._id) {
+          if (user && deleteId === category._id) {
             return (
               <div>
                 <p>
@@ -85,6 +85,7 @@ const InventoryPage = () => {
               </div>
             );
           } else if (
+            user &&
             editCategoryInput &&
             editCategoryInput.id === category._id
           ) {
@@ -105,12 +106,16 @@ const InventoryPage = () => {
               <>
                 <p>{category.name}</p>
                 <Link to={`/categories/${category._id}`}>Details</Link>
-                <button onClick={() => handleEditStart(category._id)}>
-                  Edit
-                </button>
-                <button onClick={() => handleCheckDelete(category._id)}>
-                  Delete
-                </button>
+                {user && (
+                  <>
+                    <button onClick={() => handleEditStart(category._id)}>
+                      Edit
+                    </button>
+                    <button onClick={() => handleCheckDelete(category._id)}>
+                      Delete
+                    </button>
+                  </>
+                )}
               </>
             );
           }
@@ -122,7 +127,7 @@ const InventoryPage = () => {
   return (
     <>
       <h1>Inventory Page</h1>
-      <CategoryForm fetchCategories={fetchCategories} />
+      {user && <CategoryForm fetchCategories={fetchCategories} />}
       {categories ? loaded() : loading()}
     </>
   );
