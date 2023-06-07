@@ -22,9 +22,7 @@ const LoginForm = ({ setUser }) => {
   }
 
   return (
-    <div>
-      <h3>Sign In</h3>
-      <form autoComplete="off" onSubmit={handleSubmit}></form>
+    <form autoComplete="off" onSubmit={handleSubmit}>
       <label htmlFor="username">Username</label>
       <input
         type="text"
@@ -44,7 +42,7 @@ const LoginForm = ({ setUser }) => {
         id="password"
       />
       <button type="submit">Log In</button>
-    </div>
+    </form>
   );
 };
 

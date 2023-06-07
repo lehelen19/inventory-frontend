@@ -7,9 +7,19 @@ const AuthPage = ({ setUser }) => {
   return (
     <main>
       {loginDisplay ? (
-        <LoginForm setUser={setUser} />
+        <div>
+          <LoginForm setUser={setUser} />
+          <button onClick={() => setLoginDisplay(!loginDisplay)}>
+            Sign up instead
+          </button>
+        </div>
       ) : (
-        <SignupForm setUser={setUser} />
+        <div>
+          <SignupForm setUser={setUser} />
+          <button onClick={() => setLoginDisplay(!loginDisplay)}>
+            Already have an account?
+          </button>
+        </div>
       )}
     </main>
   );
