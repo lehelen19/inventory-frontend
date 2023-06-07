@@ -24,8 +24,15 @@ const InventoryPage = () => {
     setDeleteId(id);
   };
 
-  const handleConfirmDelete = (id) => {
+  const handleConfirmDelete = async (id) => {
     console.log(id);
+    try {
+      const returnedCategories = await deleteCategory(id);
+      setCategories(returnedCategories);
+      setDeleteId(null);
+    } catch {
+      console.log('Error - could not delete category');
+    }
   };
 
   const loading = () => {
@@ -38,7 +45,9 @@ const InventoryPage = () => {
         {deleteId === category._id ? (
           <div>
             <p>Are you sure you want to delete the {category.name} category?</p>
-            <button>Delete</button>
+            <button onClick={() => handleConfirmDelete(category._id)}>
+              Delete
+            </button>
             <button onClick={() => setDeleteId(null)}>Cancel</button>
           </div>
         ) : (
