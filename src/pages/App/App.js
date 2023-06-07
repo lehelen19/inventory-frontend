@@ -23,7 +23,7 @@ function App() {
           <Route path="/categories" element={<InventoryPage />}></Route>
           <Route
             path="/categories/:id"
-            element={<CategoryDetailPage />}
+            element={<CategoryDetailPage user={user} />}
           ></Route>
           <Route path="/items/:id" element={<FoodItemDetailPage />}></Route>
           <Route

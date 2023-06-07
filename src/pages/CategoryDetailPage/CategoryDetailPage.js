@@ -7,7 +7,7 @@ import {
 } from '../../utilities/foodItems/foodItems-service';
 import NewFoodForm from '../../components/NavBar/NewFoodForm';
 
-const CategoryDetailPage = () => {
+const CategoryDetailPage = ({ user }) => {
   const [categoryDetails, setCategoryDetails] = useState(null);
   const [editingInput, setEditingInput] = useState(null);
   const { id } = useParams();
@@ -70,7 +70,7 @@ const CategoryDetailPage = () => {
         <h1>{categoryDetails.name}</h1>
         {categoryDetails.foodItems.map((item) => (
           <div key={item._id}>
-            {editingInput && editingInput._id === item._id ? (
+            {user && editingInput && editingInput._id === item._id ? (
               <form onSubmit={handleEditSubmit}>
                 <input
                   type="text"
@@ -92,10 +92,16 @@ const CategoryDetailPage = () => {
                 <Link to={`/items/${item._id}`}>
                   {item.name} ({item.quantity})
                 </Link>
-                <button onClick={() => handleEditStart(item._id)}>Edit</button>
-                <button onClick={() => handleDeleteFoodItem(item._id)}>
-                  Delete
-                </button>
+                {user && (
+                  <>
+                    <button onClick={() => handleEditStart(item._id)}>
+                      Edit
+                    </button>
+                    <button onClick={() => handleDeleteFoodItem(item._id)}>
+                      Delete
+                    </button>
+                  </>
+                )}
               </>
             )}
           </div>
@@ -107,7 +113,9 @@ const CategoryDetailPage = () => {
   return (
     <div>
       {categoryDetails ? loaded() : loading()}
-      <NewFoodForm id={id} fetchCategoryDetails={fetchCategoryDetails} />
+      {user && (
+        <NewFoodForm id={id} fetchCategoryDetails={fetchCategoryDetails} />
+      )}
     </div>
   );
 };
