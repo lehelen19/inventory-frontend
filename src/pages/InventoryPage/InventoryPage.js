@@ -22,7 +22,6 @@ const InventoryPage = () => {
 
   const handleCheckDelete = (id) => {
     setDeleteId(id);
-    console.log(deleteId);
   };
 
   const handleConfirmDelete = (id) => {
@@ -43,7 +42,7 @@ const InventoryPage = () => {
           <div>
             <p>Are you sure you want to delete the {category.name} category?</p>
             <button>Delete</button>
-            <button>Cancel</button>
+            <button onClick={() => setDeleteId(null)}>Cancel</button>
           </div>
         ) : (
           <>
