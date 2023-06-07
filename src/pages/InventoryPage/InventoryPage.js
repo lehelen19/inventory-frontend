@@ -104,8 +104,11 @@ const InventoryPage = ({ user }) => {
           } else {
             return (
               <>
-                <p>{category.name}</p>
-                <Link to={`/categories/${category._id}`}>Details</Link>
+                <h3>
+                  <Link to={`/categories/${category._id}`}>
+                    {category.name}
+                  </Link>
+                </h3>
                 {user && (
                   <>
                     <button onClick={() => handleEditStart(category._id)}>
