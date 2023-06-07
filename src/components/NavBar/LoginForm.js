@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { login } from '../../utilities/users/users-service';
 
 const LoginForm = ({ setUser }) => {
@@ -6,6 +7,8 @@ const LoginForm = ({ setUser }) => {
     username: '',
     password: '',
   });
+
+  const navigate = useNavigate();
 
   function handleChange(e) {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
@@ -16,6 +19,7 @@ const LoginForm = ({ setUser }) => {
     try {
       const user = await login(credentials);
       setUser(user);
+      navigate('/');
     } catch {
       console.log('Error logging in');
     }

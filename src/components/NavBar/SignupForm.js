@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { signUp } from '../../utilities/users/users-service';
+import { useNavigate } from 'react-router-dom';
 
 const SignupForm = ({ setUser }) => {
   const [credentials, setCredentials] = useState({
@@ -9,6 +10,8 @@ const SignupForm = ({ setUser }) => {
     key: '',
   });
 
+  const navigate = useNavigate();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -17,6 +20,7 @@ const SignupForm = ({ setUser }) => {
 
       const user = await signUp(formData);
       setUser(user);
+      navigate('/');
     } catch {
       console.log('Sign up failed - try again');
     }
