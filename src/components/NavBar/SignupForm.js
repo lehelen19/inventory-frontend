@@ -34,7 +34,7 @@ const SignupForm = ({ setUser }) => {
         <h1>Register</h1>
         <label htmlFor="key">Admin Secret Key</label>
         <input
-          type="text"
+          type="password"
           name="key"
           value={credentials.key}
           onChange={handleChange}
