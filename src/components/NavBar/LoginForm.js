@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import * as usersService from '../../utilities/users/users-service';
+import { login } from '../../utilities/users/users-service';
 
 const LoginForm = ({ setUser }) => {
   const [credentials, setCredentials] = useState({
@@ -14,7 +14,7 @@ const LoginForm = ({ setUser }) => {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      const user = await usersService.login(credentials);
+      const user = await login(credentials);
       setUser(user);
     } catch {
       console.log('Error logging in');
