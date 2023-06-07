@@ -9,8 +9,17 @@ const SignupForm = ({ setUser }) => {
     key: '',
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    try {
+      const formData = { ...credentials };
+      delete formData.confirm;
+
+      const user = await signUp(formData);
+      setUser(user);
+    } catch {
+      console.log('Sign up failed - try again');
+    }
   };
 
   const handleChange = (e) => {
