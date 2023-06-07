@@ -1,11 +1,9 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-
 import LoginForm from '../../components/NavBar/LoginForm';
 import SignupForm from '../../components/NavBar/SignupForm';
 
 const AuthPage = ({ setUser }) => {
-  const [loginDisplay, setLoginDisplay] = useState(false);
+  const [loginDisplay, setLoginDisplay] = useState(true);
   return (
     <main>
       {loginDisplay ? (
