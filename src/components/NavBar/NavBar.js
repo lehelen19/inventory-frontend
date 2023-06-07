@@ -12,7 +12,12 @@ const Navbar = ({ user, setUser }) => {
       <Link to="/">Logo</Link>
       <Link to="/about">About</Link>
       <Link to="/categories">Inventory</Link>
-      {user && <button onClick={handleLogout}>Log Out</button>}
+
+      {user ? (
+        <button onClick={handleLogout}>Log Out</button>
+      ) : (
+        <Link to="/authenticate">Admin Auth</Link>
+      )}
     </nav>
   );
 };

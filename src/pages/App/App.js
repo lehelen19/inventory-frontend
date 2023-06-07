@@ -17,20 +17,20 @@ function App() {
     <div className="App">
       <Navbar user={user} setUser={setUser} />
       <>
-        {user ? (
-          <Routes>
-            <Route path="/" element={<HomePage />}></Route>
-            <Route path="/about" element={<AboutPage />}></Route>
-            <Route path="/categories" element={<InventoryPage />}></Route>
-            <Route
-              path="/categories/:id"
-              element={<CategoryDetailPage />}
-            ></Route>
-            <Route path="/items/:id" element={<FoodItemDetailPage />}></Route>
-          </Routes>
-        ) : (
-          <AuthPage setUser={setUser} />
-        )}
+        <Routes>
+          <Route path="/" element={<HomePage />}></Route>
+          <Route path="/about" element={<AboutPage />}></Route>
+          <Route path="/categories" element={<InventoryPage />}></Route>
+          <Route
+            path="/categories/:id"
+            element={<CategoryDetailPage />}
+          ></Route>
+          <Route path="/items/:id" element={<FoodItemDetailPage />}></Route>
+          <Route
+            path="/authenticate"
+            element={<AuthPage setUser={setUser} />}
+          ></Route>
+        </Routes>
       </>
     </div>
   );
