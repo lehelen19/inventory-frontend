@@ -35,9 +35,6 @@ const InventoryPage = () => {
   const loaded = () => {
     return categories.map((category) => (
       <div key={category._id}>
-        <p>{category.name}</p>
-        <Link to={`/categories/${category._id}`}>Details</Link>
-
         {deleteId === category._id ? (
           <div>
             <p>Are you sure you want to delete the {category.name} category?</p>
@@ -46,6 +43,8 @@ const InventoryPage = () => {
           </div>
         ) : (
           <>
+            <p>{category.name}</p>
+            <Link to={`/categories/${category._id}`}>Details</Link>
             <button>Edit</button>
             <button onClick={() => handleCheckDelete(category._id)}>
               Delete
