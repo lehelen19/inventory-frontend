@@ -14,3 +14,11 @@ export async function deleteFoodItem(id) {
   const returnedCategories = await foodItemsAPI.deleteFoodItem(id);
   return returnedCategories;
 }
+
+export async function updateFoodItem(id, foodItemDetails) {
+  const returnedCategoryDetails = await foodItemsAPI.updateFoodItem(
+    id,
+    foodItemDetails
+  );
+  return returnedCategoryDetails;
+}

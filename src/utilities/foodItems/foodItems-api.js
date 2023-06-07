@@ -16,3 +16,11 @@ export function createFoodItem(id, foodItemDetails) {
 export function deleteFoodItem(id) {
   return sendRequest(`${BASE_URL}/items/${id}`, 'DELETE');
 }
+
+export function updateFoodItem(id, foodItemDetails) {
+  const { name, quantity } = foodItemDetails;
+  return sendRequest(`${BASE_URL}/items/${id}`, 'PUT', {
+    name,
+    quantity,
+  });
+}
