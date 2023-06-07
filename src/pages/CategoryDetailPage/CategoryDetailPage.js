@@ -49,6 +49,13 @@ const CategoryDetailPage = () => {
   const handleEditSubmit = async (e) => {
     e.preventDefault();
     console.log(editingInput);
+    try {
+      const returnedCategoryDetails = await updateFoodItem(id, editingInput);
+      setEditingInput(null);
+      setCategoryDetails(returnedCategoryDetails);
+    } catch {
+      console.log('Failed to update food item');
+    }
   };
 
   const loading = () => {
