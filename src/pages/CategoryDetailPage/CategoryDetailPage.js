@@ -1,7 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { getCategoryDetails } from '../../utilities/categories/categories-service';
-import { deleteFoodItem } from '../../utilities/foodItems/foodItems-service';
+import {
+  deleteFoodItem,
+  updateFoodItem,
+} from '../../utilities/foodItems/foodItems-service';
 import NewFoodForm from '../../components/NavBar/NewFoodForm';
 
 const CategoryDetailPage = () => {
