@@ -16,9 +16,11 @@ export async function createCategory(name) {
 }
 
 export async function deleteCategory(id) {
-  await categoriesAPI.deleteCategory(id);
+  const msg = await categoriesAPI.deleteCategory(id);
+  return msg;
 }
 
 export async function updateCategory(categoryDetails) {
-  await categoriesAPI.updateCategory(categoryDetails);
+  const category = await categoriesAPI.updateCategory(categoryDetails);
+  return category;
 }

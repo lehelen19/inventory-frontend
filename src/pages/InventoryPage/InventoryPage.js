@@ -57,7 +57,7 @@ const InventoryPage = () => {
     e.preventDefault();
     try {
       await updateCategory(editCategoryInput);
-      await fetchCategories();
+      fetchCategories();
       setEditCategoryInput(null);
     } catch {
       console.log('Unable to update category');
