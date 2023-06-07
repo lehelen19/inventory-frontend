@@ -4,6 +4,7 @@ import { getFoodDetails } from '../../utilities/foodItems/foodItems-service';
 
 const FoodItemDetailPage = () => {
   const [foodDetails, setFoodDetails] = useState(null);
+  const [confirmDelete, setConfirmDelete] = useState(false);
   const { id } = useParams();
 
   useEffect(() => {
@@ -48,7 +49,17 @@ const FoodItemDetailPage = () => {
             alt={`Thumbnail of ${foodDetails.food_name}`}
           />
         </div>
-        <button>Delete {foodDetails.name}</button>
+        {confirmDelete ? (
+          <>
+            <p>Are you sure you want to delete {foodDetails.name}?</p>
+            <button>Delete</button>
+            <button onClick={() => setConfirmDelete(false)}>Cancel</button>
+          </>
+        ) : (
+          <button onClick={() => setConfirmDelete(true)}>
+            Delete {foodDetails.name}
+          </button>
+        )}
       </>
     );
   };
