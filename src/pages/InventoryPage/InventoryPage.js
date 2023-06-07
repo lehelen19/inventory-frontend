@@ -28,10 +28,9 @@ const InventoryPage = () => {
   };
 
   const handleConfirmDelete = async (id) => {
-    console.log(id);
     try {
-      const returnedCategories = await deleteCategory(id);
-      setCategories(returnedCategories);
+      await deleteCategory(id);
+      await fetchCategories();
       setDeleteId(null);
     } catch {
       console.log('Error - could not delete category');

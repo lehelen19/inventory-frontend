@@ -15,5 +15,5 @@ export function createCategory(name) {
 }
 
 export function deleteCategory(id) {
-  return sendRequest(`${BASE_URL}/${id}`, 'DELETE');
+  sendRequest(`${BASE_URL}/${id}`, 'DELETE');
 }

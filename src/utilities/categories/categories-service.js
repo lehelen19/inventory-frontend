@@ -16,6 +16,5 @@ export async function createCategory(name) {
 }
 
 export async function deleteCategory(id) {
-  const categoryDetails = await categoriesAPI.deleteCategory(id);
-  return categoryDetails;
+  await categoriesAPI.deleteCategory(id);
 }
