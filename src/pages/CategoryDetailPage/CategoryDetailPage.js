@@ -20,8 +20,13 @@ const CategoryDetailPage = () => {
     fetchCategoryDetails();
   }, [id]);
 
-  const handleDeleteCategory = (id) => {
-    console.log(id);
+  const handleDeleteFoodItem = async (id) => {
+    try {
+      const returnedCategories = await deleteFoodItem(id);
+      setCategoryDetails(returnedCategories);
+    } catch {
+      console.log('Could not delete food item. Try again later.');
+    }
   };
 
   const loading = () => {
@@ -39,7 +44,7 @@ const CategoryDetailPage = () => {
               <Link to={`/items/${item._id}`}>
                 {item.name} ({item.quantity})
               </Link>
-              <button onClick={() => handleDeleteCategory(item._id)}>
+              <button onClick={() => handleDeleteFoodItem(item._id)}>
                 Delete
               </button>
             </p>
