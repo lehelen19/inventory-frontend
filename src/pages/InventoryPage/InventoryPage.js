@@ -5,7 +5,7 @@ import CategoryForm from '../../components/NavBar/NewCategoryForm';
 
 const InventoryPage = () => {
   const [categories, setCategories] = useState(null);
-  const [showModal, setShowModal] = useState(false);
+  const [deleteId, setDeleteId] = useState(null);
 
   const fetchCategories = async () => {
     try {
@@ -20,9 +20,9 @@ const InventoryPage = () => {
     fetchCategories();
   }, []);
 
-  const handleCheckDelete = () => {
-    console.log('modal');
-    setShowModal(true);
+  const handleCheckDelete = (id) => {
+    setDeleteId(id);
+    console.log(deleteId);
   };
 
   const handleConfirmDelete = (id) => {
@@ -38,11 +38,20 @@ const InventoryPage = () => {
       <div key={category._id}>
         <p>{category.name}</p>
         <Link to={`/categories/${category._id}`}>Details</Link>
-        <button>Edit</button>
-        {showModal ? (
-          <div>Modal</div>
+
+        {deleteId === category._id ? (
+          <div>
+            <p>Are you sure you want to delete the {category.name} category?</p>
+            <button>Delete</button>
+            <button>Cancel</button>
+          </div>
         ) : (
-          <button onClick={handleCheckDelete}>Delete</button>
+          <>
+            <button>Edit</button>
+            <button onClick={() => handleCheckDelete(category._id)}>
+              Delete
+            </button>
+          </>
         )}
       </div>
     ));
