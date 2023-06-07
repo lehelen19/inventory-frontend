@@ -29,7 +29,7 @@ function App() {
             <Route path="/items/:id" element={<FoodItemDetailPage />}></Route>
           </Routes>
         ) : (
-          <AuthPage />
+          <AuthPage setUser={setUser} />
         )}
       </>
     </div>
