@@ -11,8 +11,8 @@ export async function createFoodItem(id, newFoodDetails) {
 }
 
 export async function deleteFoodItem(id) {
-  const returnedCategories = await foodItemsAPI.deleteFoodItem(id);
-  return returnedCategories;
+  const returnedCategoryDetails = await foodItemsAPI.deleteFoodItem(id);
+  return returnedCategoryDetails;
 }
 
 export async function updateFoodItem(foodItemDetails) {

@@ -27,8 +27,8 @@ const CategoryDetailPage = () => {
 
   const handleDeleteFoodItem = async (id) => {
     try {
-      const returnedCategories = await deleteFoodItem(id);
-      setCategoryDetails(returnedCategories);
+      const returnedCategoryDetails = await deleteFoodItem(id);
+      setCategoryDetails(returnedCategoryDetails);
     } catch {
       console.log('Could not delete food item. Try again later.');
     }
