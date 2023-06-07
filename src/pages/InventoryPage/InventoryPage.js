@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
-import { getCategories } from '../../utilities/categories/categories-service';
 import { Link } from 'react-router-dom';
+import {
+  getCategories,
+  deleteCategory,
+} from '../../utilities/categories/categories-service';
 import CategoryForm from '../../components/NavBar/NewCategoryForm';
 
 const InventoryPage = () => {

@@ -14,3 +14,8 @@ export async function createCategory(name) {
   const category = await categoriesAPI.createCategory(name);
   return category;
 }
+
+export async function deleteCategory(id) {
+  const categoryDetails = await categoriesAPI.deleteCategory(id);
+  return categoryDetails;
+}

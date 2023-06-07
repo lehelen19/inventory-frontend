@@ -13,3 +13,7 @@ export function getCategoryDetails(id) {
 export function createCategory(name) {
   return sendRequest(BASE_URL, 'POST', { name });
 }
+
+export function deleteCategory(id) {
+  return sendRequest(`${BASE_URL}/${id}`, 'DELETE');
+}
