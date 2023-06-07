@@ -1,11 +1,16 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { getFoodDetails } from '../../utilities/foodItems/foodItems-service';
+import { useParams, useNavigate } from 'react-router-dom';
+import {
+  getFoodDetails,
+  updateFoodItem,
+  deleteFoodItem,
+} from '../../utilities/foodItems/foodItems-service';
 
 const FoodItemDetailPage = () => {
   const [foodDetails, setFoodDetails] = useState(null);
   const [confirmDelete, setConfirmDelete] = useState(false);
   const { id } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchFoodDetails = async () => {
@@ -19,6 +24,15 @@ const FoodItemDetailPage = () => {
 
     fetchFoodDetails();
   }, [id]);
+
+  const handleDelete = async () => {
+    try {
+      const category = await deleteFoodItem(id);
+      navigate(`/categories/${category._id}`);
+    } catch {
+      console.log('Failed to delete item');
+    }
+  };
 
   const loading = () => <p>Loading food item details...</p>;
 
@@ -52,7 +66,7 @@ const FoodItemDetailPage = () => {
         {confirmDelete ? (
           <>
             <p>Are you sure you want to delete {foodDetails.name}?</p>
-            <button>Delete</button>
+            <button onClick={handleDelete}>Delete</button>
             <button onClick={() => setConfirmDelete(false)}>Cancel</button>
           </>
         ) : (
