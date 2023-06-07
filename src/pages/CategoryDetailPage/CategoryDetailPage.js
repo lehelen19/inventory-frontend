@@ -20,6 +20,10 @@ const CategoryDetailPage = () => {
     fetchCategoryDetails();
   }, [id]);
 
+  const handleDeleteCategory = (id) => {
+    console.log(id);
+  };
+
   const loading = () => {
     return <p>Loading category details...</p>;
   };
@@ -35,6 +39,9 @@ const CategoryDetailPage = () => {
               <Link to={`/items/${item._id}`}>
                 {item.name} ({item.quantity})
               </Link>
+              <button onClick={() => handleDeleteCategory(item._id)}>
+                Delete
+              </button>
             </p>
           </div>
         ))}
