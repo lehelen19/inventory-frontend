@@ -15,7 +15,7 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar />
+      <Navbar user={user} setUser={setUser} />
       <>
         {user ? (
           <Routes>
