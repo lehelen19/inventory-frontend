@@ -9,6 +9,7 @@ import CategoryForm from '../../components/NavBar/NewCategoryForm';
 const InventoryPage = () => {
   const [categories, setCategories] = useState(null);
   const [deleteId, setDeleteId] = useState(null);
+  const [nameInput, setNameInput] = useState(null);
 
   const fetchCategories = async () => {
     try {
@@ -37,6 +38,13 @@ const InventoryPage = () => {
     }
   };
 
+  const handleEditStart = (id) => {
+    const category = categories.find((category) => category._id === id);
+    if (category) {
+      setNameInput({ id, name: category.name });
+    }
+  };
+
   const loading = () => {
     return <p>Loading categories...</p>;
   };
@@ -56,7 +64,7 @@ const InventoryPage = () => {
           <>
             <p>{category.name}</p>
             <Link to={`/categories/${category._id}`}>Details</Link>
-            <button>Edit</button>
+            <button onClick={() => handleEditStart(category._id)}>Edit</button>
             <button onClick={() => handleCheckDelete(category._id)}>
               Delete
             </button>
