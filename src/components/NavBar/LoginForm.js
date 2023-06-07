@@ -23,6 +23,7 @@ const LoginForm = ({ setUser }) => {
 
   return (
     <form autoComplete="off" onSubmit={handleSubmit}>
+      <h1>Log in</h1>
       <label htmlFor="username">Username</label>
       <input
         type="text"
