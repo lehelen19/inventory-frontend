@@ -19,6 +19,10 @@ const InventoryPage = () => {
     fetchCategories();
   }, []);
 
+  const handleDeleteCategory = (id) => {
+    console.log(id);
+  };
+
   const loading = () => {
     return <p>Loading categories...</p>;
   };
@@ -28,6 +32,10 @@ const InventoryPage = () => {
       <div key={category._id}>
         <p>{category.name}</p>
         <Link to={`/categories/${category._id}`}>Details</Link>
+        <button>Edit</button>
+        <button onClick={() => handleDeleteCategory(category._id)}>
+          Delete
+        </button>
       </div>
     ));
   };
