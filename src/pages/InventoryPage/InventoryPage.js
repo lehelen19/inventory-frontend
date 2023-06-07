@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import {
   getCategories,
   deleteCategory,
+  updateCategory,
 } from '../../utilities/categories/categories-service';
 import CategoryForm from '../../components/NavBar/NewCategoryForm';
 

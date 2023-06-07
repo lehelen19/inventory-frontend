@@ -18,3 +18,7 @@ export async function createCategory(name) {
 export async function deleteCategory(id) {
   await categoriesAPI.deleteCategory(id);
 }
+
+export async function updateCategory(categoryDetails) {
+  await categoriesAPI.updateCategory(categoryDetails);
+}
