@@ -45,6 +45,13 @@ const InventoryPage = () => {
     }
   };
 
+  const handleEditChange = (e) => {
+    setEditCategoryInput({
+      ...editCategoryInput,
+      [e.target.name]: e.target.value,
+    });
+  };
+
   const loading = () => {
     return <p>Loading categories...</p>;
   };
@@ -70,9 +77,16 @@ const InventoryPage = () => {
             editCategoryInput.id === category._id
           ) {
             return (
-              <div>
-                <p>Input would go here</p>
-              </div>
+              <form>
+                <input
+                  type="text"
+                  name="name"
+                  value={editCategoryInput.name}
+                  onChange={handleEditChange}
+                  autoFocus
+                />
+                <button>Submit</button>
+              </form>
             );
           } else {
             return (
