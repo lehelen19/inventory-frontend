@@ -52,6 +52,17 @@ const InventoryPage = () => {
     });
   };
 
+  const handleEditSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await updateCategory(editCategoryInput);
+      await fetchCategories();
+      setEditCategoryInput(null);
+    } catch {
+      console.log('Unable to update category');
+    }
+  };
+
   const loading = () => {
     return <p>Loading categories...</p>;
   };
@@ -77,7 +88,7 @@ const InventoryPage = () => {
             editCategoryInput.id === category._id
           ) {
             return (
-              <form>
+              <form onSubmit={handleEditSubmit}>
                 <input
                   type="text"
                   name="name"
