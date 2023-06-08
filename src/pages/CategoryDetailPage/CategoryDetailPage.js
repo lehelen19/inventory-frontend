@@ -27,6 +27,7 @@ const CategoryDetailPage = ({ user }) => {
   }, [fetchCategoryDetails]);
 
   const handleDeleteFoodItem = async (id) => {
+    setError('');
     try {
       const returnedCategoryDetails = await deleteFoodItem(id);
       setCategoryDetails(returnedCategoryDetails);
@@ -36,6 +37,7 @@ const CategoryDetailPage = ({ user }) => {
   };
 
   const handleEditStart = (id) => {
+    setError('');
     const foodItem = categoryDetails.foodItems.find((item) => item._id === id);
     if (foodItem) {
       setEditingInput({
@@ -57,7 +59,7 @@ const CategoryDetailPage = ({ user }) => {
       setCategoryDetails(returnedCategoryDetails);
       setEditingInput(null);
     } catch {
-      console.log('Failed to update food item');
+      setError('Unable to update food item - try again later');
     }
   };
 
@@ -75,22 +77,25 @@ const CategoryDetailPage = ({ user }) => {
         {categoryDetails.foodItems.map((item) => (
           <div key={item._id}>
             {user && editingInput && editingInput._id === item._id ? (
-              <form onSubmit={handleEditSubmit}>
-                <input
-                  type="text"
-                  name="name"
-                  value={editingInput.name}
-                  onChange={handleEditChange}
-                  autoFocus
-                />
-                <input
-                  type="number"
-                  name="quantity"
-                  value={editingInput.quantity}
-                  onChange={handleEditChange}
-                />
-                <button>Save</button>
-              </form>
+              <>
+                <form onSubmit={handleEditSubmit}>
+                  <input
+                    type="text"
+                    name="name"
+                    value={editingInput.name}
+                    onChange={handleEditChange}
+                    autoFocus
+                  />
+                  <input
+                    type="number"
+                    name="quantity"
+                    value={editingInput.quantity}
+                    onChange={handleEditChange}
+                  />
+                  <button>Save</button>
+                </form>
+                <p>{error}</p>
+              </>
             ) : (
               <>
                 <Link to={`/items/${item._id}`}>
