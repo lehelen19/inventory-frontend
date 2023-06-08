@@ -116,19 +116,27 @@ const CategoryDetailPage = ({ user }) => {
                 ) : (
                   <>
                     <th>
-                      <Link to={`/items/${item._id}`}>{item.name}</Link>
+                      <Link to={`/items/${item._id}`} className="capitalize">
+                        {item.name}
+                      </Link>
                     </th>
                     <td>{item.quantity}</td>
                     <td>
                       {user && (
-                        <button onClick={() => handleEditStart(item._id)}>
+                        <button
+                          onClick={() => handleEditStart(item._id)}
+                          className="btn btn-xs"
+                        >
                           Edit
                         </button>
                       )}
                     </td>
                     <td>
                       {user && (
-                        <button onClick={() => handleDeleteFoodItem(item._id)}>
+                        <button
+                          onClick={() => handleDeleteFoodItem(item._id)}
+                          className="btn btn-xs"
+                        >
                           Delete
                         </button>
                       )}
