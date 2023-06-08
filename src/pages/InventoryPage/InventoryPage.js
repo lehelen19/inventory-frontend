@@ -78,7 +78,7 @@ const InventoryPage = ({ user }) => {
     return categories.map((category) => (
       <article
         key={category._id}
-        className="card w-80 h-25 m-2 bg-secondary shadow-xl"
+        className="card w-80 h-40 m-2 bg-secondary shadow-xl"
       >
         <div className="card-body">
           {(() => {
@@ -126,10 +126,16 @@ const InventoryPage = ({ user }) => {
                   </h2>
                   {user && (
                     <div className="card-actions">
-                      <button onClick={() => handleEditStart(category._id)}>
+                      <button
+                        className="btn btn-sm"
+                        onClick={() => handleEditStart(category._id)}
+                      >
                         Edit
                       </button>
-                      <button onClick={() => handleCheckDelete(category._id)}>
+                      <button
+                        className="btn btn-sm"
+                        onClick={() => handleCheckDelete(category._id)}
+                      >
                         Delete
                       </button>
                     </div>
