@@ -1,7 +1,7 @@
-import { useState, useRef } from 'react';
+import useImageLoaded from '../../components/useImageLoaded';
 
 const HomePage = () => {
-  const [loadedImage, setLoadedImage] = useState(false);
+  const [ref, loaded, onLoad] = useImageLoaded();
 
   return (
     <>
@@ -11,11 +11,12 @@ const HomePage = () => {
             <h1 className="text-4xl font-bold py-6">
               Welcome to the Yolo County Food Bank
             </h1>
-            {loadedImage ? (
+            {loaded ? (
               <figure>
                 <img
                   src={process.env.PUBLIC_URL + '/img/hero.jpg'}
-                  onLoad={() => setLoadedImage(true)}
+                  ref={ref}
+                  onLoad={onLoad}
                   className="max-w-xs rounded-lg shadow-2xl"
                   alt="A cartoon illustration of a box with the words 'Food Bank' and a variety of groceries flying out."
                 />
