@@ -70,7 +70,7 @@ const CategoryDetailPage = ({ user }) => {
     }
 
     return (
-      <p className="m-2">
+      <p className="p-2">
         Loading category details{' '}
         <span className="loading loading-spinner text-primary"></span>
       </p>
@@ -111,7 +111,7 @@ const CategoryDetailPage = ({ user }) => {
                         onChange={handleEditChange}
                         className="input input-bordered input-sm"
                       />
-                      <button className="btn btn-xs font-medium inline ml-2">
+                      <button className="btn btn-xs font-medium inline ml-2 bg-secondary hover:bg-secondary">
                         Save
                       </button>
                     </form>
@@ -129,7 +129,7 @@ const CategoryDetailPage = ({ user }) => {
                       {user && (
                         <button
                           onClick={() => handleEditStart(item._id)}
-                          className="btn btn-xs font-medium"
+                          className="btn btn-xs font-medium bg-secondary hover:bg-secondary"
                         >
                           Edit
                         </button>
@@ -139,7 +139,7 @@ const CategoryDetailPage = ({ user }) => {
                       {user && (
                         <button
                           onClick={() => handleDeleteFoodItem(item._id)}
-                          className="btn btn-xs font-medium"
+                          className="btn btn-xs font-medium bg-secondary hover:bg-secondary"
                         >
                           Delete
                         </button>
