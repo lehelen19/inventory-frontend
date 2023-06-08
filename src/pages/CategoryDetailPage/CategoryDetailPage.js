@@ -79,49 +79,66 @@ const CategoryDetailPage = ({ user }) => {
 
   const loaded = () => {
     return (
-      <div>
+      <div className="overflow-x-auto">
         <h1>{categoryDetails.name}</h1>
-        {categoryDetails.foodItems.map((item) => (
-          <div key={item._id}>
-            {user && editingInput && editingInput._id === item._id ? (
-              <>
-                <form onSubmit={handleEditSubmit}>
-                  <input
-                    type="text"
-                    name="name"
-                    value={editingInput.name}
-                    onChange={handleEditChange}
-                    autoFocus
-                  />
-                  <input
-                    type="number"
-                    name="quantity"
-                    value={editingInput.quantity}
-                    onChange={handleEditChange}
-                  />
-                  <button>Save</button>
-                </form>
-                <p>{error}</p>
-              </>
-            ) : (
-              <>
-                <Link to={`/items/${item._id}`}>
-                  {item.name} ({item.quantity})
-                </Link>
-                {user && (
+        <table className="table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Quantity</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {categoryDetails.foodItems.map((item) => (
+              <tr key={item._id}>
+                {user && editingInput && editingInput._id === item._id ? (
                   <>
-                    <button onClick={() => handleEditStart(item._id)}>
-                      Edit
-                    </button>
-                    <button onClick={() => handleDeleteFoodItem(item._id)}>
-                      Delete
-                    </button>
+                    <form onSubmit={handleEditSubmit}>
+                      <input
+                        type="text"
+                        name="name"
+                        value={editingInput.name}
+                        onChange={handleEditChange}
+                        autoFocus
+                      />
+                      <input
+                        type="number"
+                        name="quantity"
+                        value={editingInput.quantity}
+                        onChange={handleEditChange}
+                      />
+                      <button>Save</button>
+                    </form>
+                    <p>{error}</p>
+                  </>
+                ) : (
+                  <>
+                    <th>
+                      <Link to={`/items/${item._id}`}>{item.name}</Link>
+                    </th>
+                    <td>{item.quantity}</td>
+                    <td>
+                      {user && (
+                        <button onClick={() => handleEditStart(item._id)}>
+                          Edit
+                        </button>
+                      )}
+                    </td>
+                    <td>
+                      {user && (
+                        <button onClick={() => handleDeleteFoodItem(item._id)}>
+                          Delete
+                        </button>
+                      )}
+                    </td>
                   </>
                 )}
-              </>
-            )}
-          </div>
-        ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     );
   };
@@ -129,6 +146,7 @@ const CategoryDetailPage = ({ user }) => {
   return (
     <div>
       {categoryDetails ? loaded() : loading()}
+      <br />
       {user && (
         <NewFoodForm id={id} fetchCategoryDetails={fetchCategoryDetails} />
       )}
