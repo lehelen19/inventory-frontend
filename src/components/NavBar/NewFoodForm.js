@@ -6,6 +6,7 @@ const NewFoodForm = ({ id, fetchCategoryDetails }) => {
     foodName: '',
     foodQuantity: '',
   });
+  const [error, setError] = useState(null);
 
   const handleChange = (e) => {
     setNewFood({ ...newFood, [e.target.name]: e.target.value });
@@ -21,7 +22,7 @@ const NewFoodForm = ({ id, fetchCategoryDetails }) => {
       });
       fetchCategoryDetails();
     } catch {
-      console.log('error');
+      setError('Unable to add food item - try again later');
     }
   };
 
@@ -47,6 +48,7 @@ const NewFoodForm = ({ id, fetchCategoryDetails }) => {
         required
       ></input>
       <button>Add Food Item</button>
+      <p>{error}</p>
     </form>
   );
 };
