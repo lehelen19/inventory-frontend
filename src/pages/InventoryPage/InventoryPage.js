@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import {
   getCategories,
@@ -12,14 +12,14 @@ const InventoryPage = ({ user }) => {
   const [deleteId, setDeleteId] = useState(null);
   const [editCategoryInput, setEditCategoryInput] = useState(null);
 
-  const fetchCategories = async () => {
+  const fetchCategories = useCallback(async () => {
     try {
       const foundCategories = await getCategories();
       setCategories(foundCategories);
     } catch {
       console.log('Error');
     }
-  };
+  }, []);
 
   useEffect(() => {
     fetchCategories();
