@@ -11,7 +11,11 @@ const Navbar = ({ user, setUser }) => {
     <nav className="navbar bg-accent">
       <div className="flex-1">
         <Link to="/" className="btn btn-ghost normal-case text-xl">
-          Home
+          <img
+            src={process.env.PUBLIC_URL + '/img/tree.png'}
+            className="w-12"
+            alt="A plant logo that directs you to the home page on click."
+          />
         </Link>
       </div>
       <div className="flex-none">
