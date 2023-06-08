@@ -156,13 +156,13 @@ const CategoryDetailPage = ({ user }) => {
   };
 
   return (
-    <div>
+    <main className="bg-base-200 min-h-screen">
       {categoryDetails ? loaded() : loading()}
       <br />
       {user && (
         <NewFoodForm id={id} fetchCategoryDetails={fetchCategoryDetails} />
       )}
-    </div>
+    </main>
   );
 };
 

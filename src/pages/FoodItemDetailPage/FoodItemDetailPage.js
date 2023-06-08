@@ -100,7 +100,11 @@ const FoodItemDetailPage = ({ user }) => {
     );
   };
 
-  return <div>{foodDetails ? loaded() : loading()}</div>;
+  return (
+    <main className="bg-base-200 min-h-screen">
+      {foodDetails ? loaded() : loading()}
+    </main>
+  );
 };
 
 export default FoodItemDetailPage;

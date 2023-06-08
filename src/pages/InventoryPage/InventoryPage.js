@@ -158,17 +158,13 @@ const InventoryPage = ({ user }) => {
   };
 
   return (
-    <>
-      <header>
-        <h1>Inventory Page</h1>
-      </header>
-      <main>
-        {user && <CategoryForm fetchCategories={fetchCategories} />}
-        <section className="flex flex-wrap">
-          {categories ? loaded() : loading()}
-        </section>
-      </main>
-    </>
+    <main className="bg-base-200 min-h-screen">
+      <h1>Inventory Page</h1>
+      {user && <CategoryForm fetchCategories={fetchCategories} />}
+      <section className="flex flex-wrap">
+        {categories ? loaded() : loading()}
+      </section>
+    </main>
   );
 };
 
