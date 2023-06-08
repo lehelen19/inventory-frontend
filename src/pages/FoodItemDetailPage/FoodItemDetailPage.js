@@ -43,7 +43,12 @@ const FoodItemDetailPage = ({ user }) => {
     if (error) {
       return <p>{error}</p>;
     }
-    return <p>Loading food item details...</p>;
+    return (
+      <p className="m-2">
+        Loading food item details{' '}
+        <span className="loading loading-spinner text-primary"></span>
+      </p>
+    );
   };
 
   const loaded = () => {

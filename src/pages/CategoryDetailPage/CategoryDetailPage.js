@@ -68,7 +68,13 @@ const CategoryDetailPage = ({ user }) => {
     if (error) {
       return <p>{error}</p>;
     }
-    return <p>Loading category details...</p>;
+
+    return (
+      <p className="m-2">
+        Loading category details{' '}
+        <span className="loading loading-spinner text-primary"></span>
+      </p>
+    );
   };
 
   const loaded = () => {

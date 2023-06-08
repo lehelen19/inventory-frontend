@@ -71,7 +71,12 @@ const InventoryPage = ({ user }) => {
     if (error) {
       return <p>{error}</p>;
     }
-    return <p>Loading categories...</p>;
+    return (
+      <p className="m-2">
+        Loading categories{' '}
+        <span className="loading loading-spinner text-primary"></span>
+      </p>
+    );
   };
 
   const loaded = () => {
