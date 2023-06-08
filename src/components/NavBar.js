@@ -8,7 +8,7 @@ const Navbar = ({ user, setUser }) => {
   };
 
   return (
-    <nav className="navbar">
+    <nav className="navbar bg-accent">
       <div className="flex-1">
         <Link to="/" className="btn btn-ghost normal-case text-xl">
           Home
