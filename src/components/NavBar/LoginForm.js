@@ -29,7 +29,9 @@ const LoginForm = ({ setUser }) => {
   return (
     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
       <div className="card-body">
-        <h1 className="text-3xl font-bold">Log in</h1>
+        <h1 className="text-3xl font-bold text-center tracking-wide">
+          Welcome back
+        </h1>
         <form
           autoComplete="off"
           onSubmit={handleSubmit}
@@ -45,7 +47,7 @@ const LoginForm = ({ setUser }) => {
             onChange={handleChange}
             required
             id="username"
-            className="input input-bordered"
+            className="input input-bordered input-sm"
           />
           <label htmlFor="password" className="label">
             <span className="label-text">Password</span>
@@ -57,9 +59,9 @@ const LoginForm = ({ setUser }) => {
             onChange={handleChange}
             required
             id="password"
-            className="input input-bordered"
+            className="input input-bordered input-sm"
           />
-          <button type="submit" className="btn btn-primary btn-sm mt-8">
+          <button type="submit" className="btn btn-primary btn-sm mt-4">
             Log In
           </button>
           {error && <p>{error}</p>}

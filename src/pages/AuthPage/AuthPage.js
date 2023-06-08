@@ -5,7 +5,7 @@ import SignupForm from '../../components/NavBar/SignupForm';
 const AuthPage = ({ setUser }) => {
   const [loginDisplay, setLoginDisplay] = useState(true);
   return (
-    <main className="hero bg-base-200">
+    <main className="hero min-h-screen bg-base-200">
       {loginDisplay ? (
         <div className="hero-content flex-col lg:flex-row-reverse">
           <LoginForm setUser={setUser} />
