@@ -23,7 +23,7 @@ const InventoryPage = ({ user }) => {
 
   useEffect(() => {
     fetchCategories();
-  }, []);
+  }, [fetchCategories]);
 
   const handleCheckDelete = (id) => {
     setDeleteId(id);
