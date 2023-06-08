@@ -44,7 +44,7 @@ const FoodItemDetailPage = ({ user }) => {
       return <p>{error}</p>;
     }
     return (
-      <p className="m-2">
+      <p className="p-2">
         Loading food item details{' '}
         <span className="loading loading-spinner text-primary"></span>
       </p>
