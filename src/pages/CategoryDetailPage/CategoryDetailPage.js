@@ -94,7 +94,7 @@ const CategoryDetailPage = ({ user }) => {
             {categoryDetails.foodItems.map((item) => (
               <tr key={item._id}>
                 {user && editingInput && editingInput._id === item._id ? (
-                  <>
+                  <td colSpan={4}>
                     <form onSubmit={handleEditSubmit}>
                       <input
                         type="text"
@@ -102,17 +102,21 @@ const CategoryDetailPage = ({ user }) => {
                         value={editingInput.name}
                         onChange={handleEditChange}
                         autoFocus
+                        className="input input-bordered input-sm mx-2"
                       />
                       <input
                         type="number"
                         name="quantity"
                         value={editingInput.quantity}
                         onChange={handleEditChange}
+                        className="input input-bordered input-sm"
                       />
-                      <button>Save</button>
+                      <button className="btn btn-xs font-medium inline ml-2">
+                        Save
+                      </button>
                     </form>
                     <p>{error}</p>
-                  </>
+                  </td>
                 ) : (
                   <>
                     <th>
@@ -125,7 +129,7 @@ const CategoryDetailPage = ({ user }) => {
                       {user && (
                         <button
                           onClick={() => handleEditStart(item._id)}
-                          className="btn btn-xs"
+                          className="btn btn-xs font-medium"
                         >
                           Edit
                         </button>
@@ -135,7 +139,7 @@ const CategoryDetailPage = ({ user }) => {
                       {user && (
                         <button
                           onClick={() => handleDeleteFoodItem(item._id)}
-                          className="btn btn-xs"
+                          className="btn btn-xs font-medium"
                         >
                           Delete
                         </button>
