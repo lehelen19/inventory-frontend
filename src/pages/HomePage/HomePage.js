@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import useImageLoaded from '../../components/useImageLoaded';
 
 const HomePage = () => {
@@ -35,9 +36,9 @@ const HomePage = () => {
               </figcaption>
             </figure>
 
-            <button className="btn btn-primary my-4">
+            <Link to="/categories" className="btn btn-primary my-4">
               See what's available
-            </button>
+            </Link>
           </div>
         </div>
       </main>
