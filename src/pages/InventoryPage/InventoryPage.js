@@ -76,72 +76,84 @@ const InventoryPage = ({ user }) => {
 
   const loaded = () => {
     return categories.map((category) => (
-      <div key={category._id}>
-        {(() => {
-          if (user && deleteId === category._id) {
-            return (
-              <div>
-                <p>
-                  Are you sure you want to delete the {category.name} category?
-                </p>
-                <button onClick={() => handleConfirmDelete(category._id)}>
-                  Delete
-                </button>
-                <button onClick={() => setDeleteId(null)}>Cancel</button>
-                <p>{error}</p>
-              </div>
-            );
-          } else if (
-            user &&
-            editCategoryInput &&
-            editCategoryInput.id === category._id
-          ) {
-            return (
-              <>
-                <form onSubmit={handleEditSubmit}>
-                  <input
-                    type="text"
-                    name="name"
-                    value={editCategoryInput.name}
-                    onChange={handleEditChange}
-                    autoFocus
-                  />
-                  <button>Submit</button>
-                </form>
-                <p>{error}</p>
-              </>
-            );
-          } else {
-            return (
-              <>
-                <h3>
-                  <Link to={`/categories/${category._id}`}>
-                    {category.name}
-                  </Link>
-                </h3>
-                {user && (
-                  <>
-                    <button onClick={() => handleEditStart(category._id)}>
-                      Edit
-                    </button>
-                    <button onClick={() => handleCheckDelete(category._id)}>
-                      Delete
-                    </button>
-                  </>
-                )}
-              </>
-            );
-          }
-        })()}
-      </div>
+      <article
+        key={category._id}
+        className="card w-80 h-25 m-2 bg-secondary shadow-xl"
+      >
+        <div className="card-body">
+          {(() => {
+            if (user && deleteId === category._id) {
+              return (
+                <div>
+                  <p>
+                    Are you sure you want to delete the {category.name}{' '}
+                    category?
+                  </p>
+                  <button onClick={() => handleConfirmDelete(category._id)}>
+                    Delete
+                  </button>
+                  <button onClick={() => setDeleteId(null)}>Cancel</button>
+                  <p>{error}</p>
+                </div>
+              );
+            } else if (
+              user &&
+              editCategoryInput &&
+              editCategoryInput.id === category._id
+            ) {
+              return (
+                <>
+                  <form onSubmit={handleEditSubmit}>
+                    <input
+                      type="text"
+                      name="name"
+                      value={editCategoryInput.name}
+                      onChange={handleEditChange}
+                      autoFocus
+                    />
+                    <button>Submit</button>
+                  </form>
+                  <p>{error}</p>
+                </>
+              );
+            } else {
+              return (
+                <>
+                  <h2 className="card-title">
+                    <Link to={`/categories/${category._id}`}>
+                      {category.name}
+                    </Link>
+                  </h2>
+                  {user && (
+                    <div className="card-actions">
+                      <button onClick={() => handleEditStart(category._id)}>
+                        Edit
+                      </button>
+                      <button onClick={() => handleCheckDelete(category._id)}>
+                        Delete
+                      </button>
+                    </div>
+                  )}
+                </>
+              );
+            }
+          })()}
+        </div>
+      </article>
     ));
   };
 
   return (
     <>
-      <h1>Inventory Page</h1>
-      {user && <CategoryForm fetchCategories={fetchCategories} />}
-      {categories ? loaded() : loading()}
+      <header>
+        <h1>Inventory Page</h1>
+      </header>
+      <main>
+        {user && <CategoryForm fetchCategories={fetchCategories} />}
+        <section className="flex flex-wrap">
+          {categories ? loaded() : loading()}
+        </section>
+      </main>
     </>
   );
 };
