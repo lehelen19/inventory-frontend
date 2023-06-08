@@ -11,9 +11,9 @@ const HomePage = () => {
             <h1 className="text-4xl font-bold py-6">
               Welcome to the Yolo County Food Bank
             </h1>
-            {/* Credit: https://stackoverflow.com/a/68819767 */}
-            <p style={{ display: loaded ? 'block' : 'none' }}>
-              Loading image...
+            {/* Credit for loading: https://stackoverflow.com/a/68819767 */}
+            <p style={{ display: loaded ? 'none' : 'block' }}>
+              <span className="loading loading-spinner text-primary"></span>
             </p>
             <figure style={{ display: loaded ? 'block' : 'none' }}>
               <img
