@@ -5,18 +5,24 @@ import SignupForm from '../../components/NavBar/SignupForm';
 const AuthPage = ({ setUser }) => {
   const [loginDisplay, setLoginDisplay] = useState(true);
   return (
-    <main>
+    <main className="hero bg-base-200">
       {loginDisplay ? (
-        <div>
+        <div className="hero-content flex-col lg:flex-row-reverse">
           <LoginForm setUser={setUser} />
-          <button onClick={() => setLoginDisplay(!loginDisplay)}>
+          <button
+            onClick={() => setLoginDisplay(!loginDisplay)}
+            className="label-text-alt link link-hover"
+          >
             Sign up instead
           </button>
         </div>
       ) : (
         <div>
           <SignupForm setUser={setUser} />
-          <button onClick={() => setLoginDisplay(!loginDisplay)}>
+          <button
+            onClick={() => setLoginDisplay(!loginDisplay)}
+            className="label-text-alt link link-hover"
+          >
             Already have an account?
           </button>
         </div>

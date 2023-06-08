@@ -27,29 +27,45 @@ const LoginForm = ({ setUser }) => {
   }
 
   return (
-    <form autoComplete="off" onSubmit={handleSubmit}>
-      <h1>Log in</h1>
-      <label htmlFor="username">Username</label>
-      <input
-        type="text"
-        name="username"
-        value={credentials.username}
-        onChange={handleChange}
-        required
-        id="username"
-      />
-      <label htmlFor="password">Password</label>
-      <input
-        type="password"
-        name="password"
-        value={credentials.password}
-        onChange={handleChange}
-        required
-        id="password"
-      />
-      <button type="submit">Log In</button>
-      {error && <p>{error}</p>}
-    </form>
+    <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+      <div className="card-body">
+        <h1 className="text-3xl font-bold">Log in</h1>
+        <form
+          autoComplete="off"
+          onSubmit={handleSubmit}
+          className="form-control"
+        >
+          <label htmlFor="username" className="label">
+            <span className="label-text">Username</span>
+          </label>
+          <input
+            type="text"
+            name="username"
+            value={credentials.username}
+            onChange={handleChange}
+            required
+            id="username"
+            className="input input-bordered"
+          />
+          <label htmlFor="password" className="label">
+            <span className="label-text">Password</span>
+          </label>
+          <input
+            type="password"
+            name="password"
+            value={credentials.password}
+            onChange={handleChange}
+            required
+            id="password"
+            className="input input-bordered"
+          />
+          <button type="submit" className="btn btn-primary btn-sm mt-8">
+            Log In
+          </button>
+          {error && <p>{error}</p>}
+        </form>
+      </div>
+    </div>
   );
 };
 
