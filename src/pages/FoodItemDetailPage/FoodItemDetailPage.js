@@ -34,7 +34,17 @@ const FoodItemDetailPage = ({ user }) => {
     }
   };
 
-  const loading = () => <p>Loading food item details...</p>;
+  const handleCancelDelete = () => {
+    setConfirmDelete(false);
+    setError('');
+  };
+
+  const loading = () => {
+    if (error) {
+      return <p>{error}</p>;
+    }
+    return <p>Loading food item details...</p>;
+  };
 
   const loaded = () => {
     return (
@@ -69,7 +79,8 @@ const FoodItemDetailPage = ({ user }) => {
               <>
                 <p>Are you sure you want to delete {foodDetails.name}?</p>
                 <button onClick={handleDelete}>Delete</button>
-                <button onClick={() => setConfirmDelete(false)}>Cancel</button>
+                <button onClick={handleCancelDelete}>Cancel</button>
+                {error && <p>{error}</p>}
               </>
             );
           } else if (user && !confirmDelete) {
