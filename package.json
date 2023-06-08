@@ -38,6 +38,7 @@
   },
   "proxy": "http://localhost:3001",
   "devDependencies": {
+    "daisyui": "^3.0.20",
     "tailwindcss": "^3.3.2"
   }
 }
