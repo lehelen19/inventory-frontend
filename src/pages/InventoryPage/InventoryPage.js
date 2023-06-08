@@ -11,13 +11,14 @@ const InventoryPage = ({ user }) => {
   const [categories, setCategories] = useState(null);
   const [deleteId, setDeleteId] = useState(null);
   const [editCategoryInput, setEditCategoryInput] = useState(null);
+  const [error, setError] = useState(null);
 
   const fetchCategories = useCallback(async () => {
     try {
       const foundCategories = await getCategories();
       setCategories(foundCategories);
     } catch {
-      console.log('Error');
+      setError('Unable to fetch categories. Please try again later.');
     }
   }, []);
 
@@ -65,6 +66,9 @@ const InventoryPage = ({ user }) => {
   };
 
   const loading = () => {
+    if (error) {
+      return <p>{error}</p>;
+    }
     return <p>Loading categories...</p>;
   };
 
