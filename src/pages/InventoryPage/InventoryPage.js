@@ -120,7 +120,10 @@ const InventoryPage = ({ user }) => {
               return (
                 <>
                   <h2 className="card-title">
-                    <Link to={`/categories/${category._id}`}>
+                    <Link
+                      to={`/categories/${category._id}`}
+                      className="tracking-wide"
+                    >
                       {category.name}
                     </Link>
                   </h2>
