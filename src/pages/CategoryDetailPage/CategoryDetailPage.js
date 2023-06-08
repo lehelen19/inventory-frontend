@@ -10,6 +10,7 @@ import NewFoodForm from '../../components/NavBar/NewFoodForm';
 const CategoryDetailPage = ({ user }) => {
   const [categoryDetails, setCategoryDetails] = useState(null);
   const [editingInput, setEditingInput] = useState(null);
+  const [error, setError] = useState(null);
   const { id } = useParams();
 
   const fetchCategoryDetails = useCallback(async () => {
@@ -17,7 +18,7 @@ const CategoryDetailPage = ({ user }) => {
       const foundCategory = await getCategoryDetails(id);
       setCategoryDetails(foundCategory);
     } catch {
-      console.log('ERROR');
+      setError('Unable to retrieve category details - try again later');
     }
   }, [id]);
 
@@ -30,7 +31,7 @@ const CategoryDetailPage = ({ user }) => {
       const returnedCategoryDetails = await deleteFoodItem(id);
       setCategoryDetails(returnedCategoryDetails);
     } catch {
-      console.log('Could not delete food item. Try again later.');
+      setError('Unable to delete food item - try again later');
     }
   };
 
@@ -61,6 +62,9 @@ const CategoryDetailPage = ({ user }) => {
   };
 
   const loading = () => {
+    if (error) {
+      return <p>{error}</p>;
+    }
     return <p>Loading category details...</p>;
   };
 
