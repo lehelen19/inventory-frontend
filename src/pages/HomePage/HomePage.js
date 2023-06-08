@@ -18,6 +18,7 @@ const HomePage = () => {
                 <a
                   href="https://www.freepik.com/free-vector/hand-drawn-flat-design-food-bank-illustration_24721221.htm#query=cartoon%20food%20bank&position=5&from_view=search&track=ais"
                   target="_blank"
+                  rel="noreferrer"
                 >
                   Freepik
                 </a>
