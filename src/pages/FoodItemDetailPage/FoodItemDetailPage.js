@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import {
   getFoodDetails,
-  updateFoodItem,
   deleteFoodItem,
 } from '../../utilities/foodItems/foodItems-service';
 

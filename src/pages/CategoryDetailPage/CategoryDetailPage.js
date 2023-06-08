@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { getCategoryDetails } from '../../utilities/categories/categories-service';
 import {
@@ -12,18 +12,18 @@ const CategoryDetailPage = ({ user }) => {
   const [editingInput, setEditingInput] = useState(null);
   const { id } = useParams();
 
-  const fetchCategoryDetails = async () => {
+  const fetchCategoryDetails = useCallback(async () => {
     try {
       const foundCategory = await getCategoryDetails(id);
       setCategoryDetails(foundCategory);
     } catch {
       console.log('ERROR');
     }
-  };
+  }, [id]);
 
   useEffect(() => {
     fetchCategoryDetails();
-  }, [id]);
+  }, [fetchCategoryDetails]);
 
   const handleDeleteFoodItem = async (id) => {
     try {
