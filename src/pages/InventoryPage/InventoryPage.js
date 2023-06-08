@@ -42,6 +42,7 @@ const InventoryPage = ({ user }) => {
   };
 
   const handleEditStart = (id) => {
+    setError('');
     const category = categories.find((category) => category._id === id);
     if (category) {
       setEditCategoryInput({ id, name: category.name });
