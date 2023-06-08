@@ -28,6 +28,7 @@ const InventoryPage = ({ user }) => {
 
   const handleCheckDelete = (id) => {
     setDeleteId(id);
+    setError('');
   };
 
   const handleConfirmDelete = async (id) => {
@@ -36,7 +37,7 @@ const InventoryPage = ({ user }) => {
       await fetchCategories();
       setDeleteId(null);
     } catch {
-      console.log('Error - could not delete category');
+      setError('Unable to delete category - try again.');
     }
   };
 
@@ -86,6 +87,7 @@ const InventoryPage = ({ user }) => {
                   Delete
                 </button>
                 <button onClick={() => setDeleteId(null)}>Cancel</button>
+                <p>{error}</p>
               </div>
             );
           } else if (
