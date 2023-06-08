@@ -20,7 +20,7 @@ const LoginForm = ({ setUser }) => {
     try {
       const user = await login(credentials);
       setUser(user);
-      navigate('/');
+      navigate('/categories');
     } catch {
       setError('Unable to log in - try again');
     }

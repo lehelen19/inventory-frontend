@@ -21,7 +21,7 @@ const SignupForm = ({ setUser }) => {
 
       const user = await signUp(formData);
       setUser(user);
-      navigate('/');
+      navigate('/categories');
     } catch {
       setError('Sign up failed - try again');
     }
