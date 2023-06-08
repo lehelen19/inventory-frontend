@@ -3,6 +3,7 @@ import { createCategory } from '../../utilities/categories/categories-service';
 
 const CategoryForm = ({ fetchCategories }) => {
   const [categoryName, setCategoryName] = useState('');
+  const [error, setError] = useState(null);
 
   const handleChange = (e) => {
     setCategoryName(e.target.value);
@@ -15,7 +16,7 @@ const CategoryForm = ({ fetchCategories }) => {
       setCategoryName('');
       fetchCategories();
     } catch {
-      console.log('error');
+      setError('Unable to create category - try again later');
     }
   };
 
@@ -32,6 +33,7 @@ const CategoryForm = ({ fetchCategories }) => {
         required
       ></input>
       <button>Add Category</button>
+      <p>{error}</p>
     </form>
   );
 };
