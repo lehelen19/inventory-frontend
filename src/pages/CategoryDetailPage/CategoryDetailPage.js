@@ -27,10 +27,10 @@ const CategoryDetailPage = ({ user }) => {
   }, [fetchCategoryDetails]);
 
   const handleDeleteFoodItem = async (id) => {
-    setError('');
     try {
       const returnedCategoryDetails = await deleteFoodItem(id);
       setCategoryDetails(returnedCategoryDetails);
+      setError('');
     } catch {
       setError('Unable to delete food item - try again later');
     }
@@ -58,6 +58,7 @@ const CategoryDetailPage = ({ user }) => {
       const returnedCategoryDetails = await updateFoodItem(editingInput);
       setCategoryDetails(returnedCategoryDetails);
       setEditingInput(null);
+      setError('');
     } catch {
       setError('Unable to update food item - try again later');
     }

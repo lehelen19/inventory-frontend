@@ -7,6 +7,7 @@ const LoginForm = ({ setUser }) => {
     username: '',
     password: '',
   });
+  const [error, setError] = useState(null);
 
   const navigate = useNavigate();
 
@@ -21,7 +22,7 @@ const LoginForm = ({ setUser }) => {
       setUser(user);
       navigate('/');
     } catch {
-      console.log('Error logging in');
+      setError('Unable to log in - try again');
     }
   }
 
@@ -47,6 +48,7 @@ const LoginForm = ({ setUser }) => {
         id="password"
       />
       <button type="submit">Log In</button>
+      {error && <p>{error}</p>}
     </form>
   );
 };

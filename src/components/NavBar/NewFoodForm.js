@@ -21,6 +21,7 @@ const NewFoodForm = ({ id, fetchCategoryDetails }) => {
         foodQuantity: '',
       });
       fetchCategoryDetails();
+      setError('');
     } catch {
       setError('Unable to add food item - try again later');
     }

@@ -13,6 +13,7 @@ const CategoryForm = ({ fetchCategories }) => {
     e.preventDefault();
     try {
       await createCategory(categoryName);
+      setError('');
       setCategoryName('');
       fetchCategories();
     } catch {

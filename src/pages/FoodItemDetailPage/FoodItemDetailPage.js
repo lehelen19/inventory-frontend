@@ -8,6 +8,7 @@ import {
 const FoodItemDetailPage = ({ user }) => {
   const [foodDetails, setFoodDetails] = useState(null);
   const [confirmDelete, setConfirmDelete] = useState(false);
+  const [error, setError] = useState(null);
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -17,7 +18,7 @@ const FoodItemDetailPage = ({ user }) => {
         const foundFoodDetails = await getFoodDetails(id);
         setFoodDetails(foundFoodDetails);
       } catch {
-        console.log('error getting food details');
+        setError('Unable to fetch food details - try again later');
       }
     };
 
@@ -29,7 +30,7 @@ const FoodItemDetailPage = ({ user }) => {
       const category = await deleteFoodItem(id);
       navigate(`/categories/${category._id}`);
     } catch {
-      console.log('Failed to delete item');
+      setError('Unable to delete food item - try again later');
     }
   };
 
