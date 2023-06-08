@@ -5,7 +5,7 @@ import {
   deleteCategory,
   updateCategory,
 } from '../../utilities/categories/categories-service';
-import CategoryForm from '../../components/NavBar/NewCategoryForm';
+import CategoryForm from '../../components/NewCategoryForm';
 
 const InventoryPage = ({ user }) => {
   const [categories, setCategories] = useState(null);

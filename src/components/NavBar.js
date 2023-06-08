@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { logOut } from '../../utilities/users/users-service';
+import { logOut } from '../utilities/users/users-service';
 
 const Navbar = ({ user, setUser }) => {
   const handleLogout = () => {

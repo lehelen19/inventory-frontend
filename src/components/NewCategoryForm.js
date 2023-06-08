@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { createCategory } from '../../utilities/categories/categories-service';
+import { createCategory } from '../utilities/categories/categories-service';
 
 const CategoryForm = ({ fetchCategories }) => {
   const [categoryName, setCategoryName] = useState('');

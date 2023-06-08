@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { createFoodItem } from '../../utilities/foodItems/foodItems-service';
+import { createFoodItem } from '../utilities/foodItems/foodItems-service';
 
 const NewFoodForm = ({ id, fetchCategoryDetails }) => {
   const [newFood, setNewFood] = useState({

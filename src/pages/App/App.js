@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import { getUser } from '../../utilities/users/users-service';
 import HomePage from '../HomePage/HomePage';
 import AuthPage from '../AuthPage/AuthPage';
-import Navbar from '../../components/NavBar/NavBar';
+import Navbar from '../../components/NavBar';
 import InventoryPage from '../InventoryPage/InventoryPage';
 import AboutPage from '../AboutPage/AboutPage';
 import CategoryDetailPage from '../CategoryDetailPage/CategoryDetailPage';

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { signUp } from '../../utilities/users/users-service';
+import { signUp } from '../utilities/users/users-service';
 import { useNavigate } from 'react-router-dom';
 
 const SignupForm = ({ setUser }) => {

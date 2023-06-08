@@ -5,7 +5,7 @@ import {
   deleteFoodItem,
   updateFoodItem,
 } from '../../utilities/foodItems/foodItems-service';
-import NewFoodForm from '../../components/NavBar/NewFoodForm';
+import NewFoodForm from '../../components/NewFoodForm';
 
 const CategoryDetailPage = ({ user }) => {
   const [categoryDetails, setCategoryDetails] = useState(null);
