@@ -18,7 +18,7 @@ const InventoryPage = ({ user }) => {
       const foundCategories = await getCategories();
       setCategories(foundCategories);
     } catch {
-      setError('Unable to fetch categories. Please try again later.');
+      setError('Unable to fetch categories - try again later');
     }
   }, []);
 
@@ -37,7 +37,7 @@ const InventoryPage = ({ user }) => {
       await fetchCategories();
       setDeleteId(null);
     } catch {
-      setError('Unable to delete category - try again.');
+      setError('Unable to delete category - try again later');
     }
   };
 
@@ -62,7 +62,7 @@ const InventoryPage = ({ user }) => {
       fetchCategories();
       setEditCategoryInput(null);
     } catch {
-      console.log('Unable to update category');
+      setError('Unable to update category name - try again later');
     }
   };
 
@@ -96,16 +96,19 @@ const InventoryPage = ({ user }) => {
             editCategoryInput.id === category._id
           ) {
             return (
-              <form onSubmit={handleEditSubmit}>
-                <input
-                  type="text"
-                  name="name"
-                  value={editCategoryInput.name}
-                  onChange={handleEditChange}
-                  autoFocus
-                />
-                <button>Submit</button>
-              </form>
+              <>
+                <form onSubmit={handleEditSubmit}>
+                  <input
+                    type="text"
+                    name="name"
+                    value={editCategoryInput.name}
+                    onChange={handleEditChange}
+                    autoFocus
+                  />
+                  <button>Submit</button>
+                </form>
+                <p>{error}</p>
+              </>
             );
           } else {
             return (
