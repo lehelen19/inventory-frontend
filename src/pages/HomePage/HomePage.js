@@ -8,7 +8,7 @@ const HomePage = () => {
     <>
       <main>
         <div className="hero min-h-screen bg-base-200">
-          <div className="hero-content flex-col lg:flex-row">
+          <div className="hero-content flex-col">
             <h1 className="text-4xl font-bold py-6">
               Welcome to the Yolo County Food Bank
             </h1>
