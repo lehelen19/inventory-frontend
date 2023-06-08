@@ -8,16 +8,32 @@ const Navbar = ({ user, setUser }) => {
   };
 
   return (
-    <nav>
-      <Link to="/">Logo</Link>
-      <Link to="/about">About</Link>
-      <Link to="/categories">Inventory</Link>
+    <nav className="navbar">
+      <div className="flex-1">
+        <Link to="/" className="btn btn-ghost normal-case text-xl">
+          Home
+        </Link>
+      </div>
+      <div className="flex-none">
+        <ul className="menu menu-horizontal px-1">
+          <li>
+            <Link to="/about">About</Link>
+          </li>
+          <li>
+            <Link to="/categories">Inventory</Link>
+          </li>
 
-      {user ? (
-        <button onClick={handleLogout}>Log Out</button>
-      ) : (
-        <Link to="/authenticate">Admin Auth</Link>
-      )}
+          {user ? (
+            <li>
+              <button onClick={handleLogout}>Log Out</button>
+            </li>
+          ) : (
+            <li>
+              <Link to="/authenticate">Admin Auth</Link>
+            </li>
+          )}
+        </ul>
+      </div>
     </nav>
   );
 };
