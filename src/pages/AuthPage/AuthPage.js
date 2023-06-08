@@ -7,7 +7,7 @@ const AuthPage = ({ setUser }) => {
   return (
     <main className="hero min-h-screen bg-base-200">
       {loginDisplay ? (
-        <div className="hero-content flex-col lg:flex-row-reverse">
+        <div className="hero-content flex-col">
           <LoginForm setUser={setUser} />
           <button
             onClick={() => setLoginDisplay(!loginDisplay)}
@@ -17,7 +17,7 @@ const AuthPage = ({ setUser }) => {
           </button>
         </div>
       ) : (
-        <div className="hero-content flex-col lg:flex-row-reverse">
+        <div className="hero-content flex-col">
           <SignupForm setUser={setUser} />
           <button
             onClick={() => setLoginDisplay(!loginDisplay)}
