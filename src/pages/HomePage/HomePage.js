@@ -8,7 +8,7 @@ const HomePage = () => {
     <main className="hero bg-base-200 px-8 pb-4">
       <div className="hero-content flex-col">
         <h1 className="text-4xl font-bold py-6">
-          Welcome to the Yolo Food Bank Inventory
+          Welcome to the Yolo Food Bank Inventory!
         </h1>
         {/* Credit for loading: https://stackoverflow.com/a/68819767 */}
         <p style={{ display: loaded ? 'none' : 'block' }}>
