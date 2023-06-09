@@ -127,9 +127,23 @@ const InventoryPage = ({ user }) => {
                     autoFocus
                     className="input input-bordered input-sm w-1/2 mr-2 lg:w-2/3"
                   />
-                  <button className="btn btn-sm font-medium inline lg:mt-2">
-                    Submit
-                  </button>
+                  <div>
+                    <button
+                      type="submit"
+                      className="btn btn-sm font-medium inline lg:mt-2 mr-4"
+                    >
+                      Save
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setEditCategoryInput(null);
+                      }}
+                      className="btn btn-sm font-medium inline lg:mt-2 bg-error hover:bg-error"
+                    >
+                      Cancel
+                    </button>
+                  </div>
                 </form>
                 <p>{error}</p>
               </div>
