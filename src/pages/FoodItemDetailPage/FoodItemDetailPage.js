@@ -56,7 +56,7 @@ const FoodItemDetailPage = ({ user }) => {
       <>
         <div className="flex flex-col items-center">
           <div className="flex justify-center items-center">
-            <div className="w-24 mr-4 my-4 border-2 border-primary rounded-md">
+            <div className="max-w-24 mr-4 my-4 border-2 border-primary rounded-md">
               <img
                 src={`${foodDetails.photo.thumb}`}
                 alt={`Thumbnail of ${foodDetails.food_name}`}
