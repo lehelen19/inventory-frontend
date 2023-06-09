@@ -32,7 +32,7 @@ const NewFoodForm = ({ id, fetchCategoryDetails }) => {
       <label htmlFor="foodName">Food item name</label>
       <input
         type="text"
-        placeholder="Name..."
+        placeholder="Fuji apples"
         name="foodName"
         id="foodName"
         value={newFood.foodName}
@@ -42,6 +42,7 @@ const NewFoodForm = ({ id, fetchCategoryDetails }) => {
       <label htmlFor="foodQuantity">Quantity</label>
       <input
         type="number"
+        placeholder="How many?"
         name="foodQuantity"
         id="foodQuantity"
         value={newFood.foodQuantity}
