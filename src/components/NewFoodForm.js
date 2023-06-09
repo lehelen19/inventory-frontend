@@ -28,8 +28,13 @@ const NewFoodForm = ({ id, fetchCategoryDetails }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="foodName">Food item name</label>
+    <form onSubmit={handleSubmit} className="form-control max-w-sm inline">
+      <h2 className="italic text-center mb-4 text-lg font-semibold">
+        Add a food item
+      </h2>
+      <label htmlFor="foodName">
+        <span className="label-text m-2">Food item name</span>
+      </label>
       <input
         type="text"
         placeholder="Fuji apples"
@@ -38,8 +43,11 @@ const NewFoodForm = ({ id, fetchCategoryDetails }) => {
         value={newFood.foodName}
         onChange={handleChange}
         required
+        className="input input-bordered input-sm"
       ></input>
-      <label htmlFor="foodQuantity">Quantity</label>
+      <label htmlFor="foodQuantity">
+        <span className="label-text m-2">Quantity</span>
+      </label>
       <input
         type="number"
         placeholder="How many?"
@@ -48,8 +56,11 @@ const NewFoodForm = ({ id, fetchCategoryDetails }) => {
         value={newFood.foodQuantity}
         onChange={handleChange}
         required
+        className="input input-bordered input-sm"
       ></input>
-      <button>Add Food Item</button>
+      <button className="btn btn-sm font-medium bg-secondary hover:bg-secondary ml-2">
+        Submit
+      </button>
       <p>{error}</p>
     </form>
   );

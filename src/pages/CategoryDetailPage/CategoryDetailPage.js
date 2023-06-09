@@ -161,10 +161,12 @@ const CategoryDetailPage = ({ user }) => {
   return (
     <main className="bg-base-200 min-h-screen">
       {categoryDetails ? loaded() : loading()}
-      <br />
-      {user && (
-        <NewFoodForm id={id} fetchCategoryDetails={fetchCategoryDetails} />
-      )}
+      <hr className="border-1 border-primary m-4" />
+      <div className="text-center">
+        {user && (
+          <NewFoodForm id={id} fetchCategoryDetails={fetchCategoryDetails} />
+        )}
+      </div>
     </main>
   );
 };
