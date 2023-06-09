@@ -9,7 +9,7 @@ const Navbar = ({ user, setUser }) => {
 
   return (
     <header>
-      <nav className="navbar bg-accent">
+      <nav className="navbar p-0 bg-accent">
         <div className="flex-1">
           <Link to="/" className="btn btn-ghost normal-case text-xl">
             <img
