@@ -81,7 +81,7 @@ const CategoryDetailPage = ({ user }) => {
     return (
       <div className="overflow-x-visible flex flex-col items-center justify-center">
         <h1 className="text-3xl font-bold py-2">{categoryDetails.name}</h1>
-        <hr className="border-1 border-primary mt-1 w-28" />
+        <hr className="border-1 border-primary mt-1 w-28 mb-2" />
         {user && (
           <div className="collapse rounded-sm w-auto">
             <input type="checkbox" />
@@ -96,13 +96,17 @@ const CategoryDetailPage = ({ user }) => {
             </div>
           </div>
         )}
-        <table className="table table-sm md:table-md lg:table-lg max-w-5xl">
+        <table className="table table-sm md:table-md lg:table-lg max-w-xl">
           <thead>
             <tr className="uppercase">
               <th>Name</th>
               <th>Quantity</th>
-              <th></th>
-              <th></th>
+              {user && (
+                <>
+                  <th></th>
+                  <th></th>
+                </>
+              )}
             </tr>
           </thead>
           <tbody>
@@ -143,26 +147,27 @@ const CategoryDetailPage = ({ user }) => {
                       </Link>
                     </th>
                     <td>{item.quantity}</td>
-                    <td>
-                      {user && (
+
+                    {user && (
+                      <td>
                         <button
                           onClick={() => handleEditStart(item._id)}
                           className="btn btn-sm font-medium bg-secondary hover:bg-secondary"
                         >
                           Edit
                         </button>
-                      )}
-                    </td>
-                    <td>
-                      {user && (
+                      </td>
+                    )}
+                    {user && (
+                      <td>
                         <button
                           onClick={() => handleDeleteFoodItem(item._id)}
                           className="btn btn-sm font-medium bg-secondary hover:bg-secondary"
                         >
                           Delete
                         </button>
-                      )}
-                    </td>
+                      </td>
+                    )}
                   </>
                 )}
               </tr>
