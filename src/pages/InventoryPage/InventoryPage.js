@@ -159,12 +159,12 @@ const InventoryPage = ({ user }) => {
   };
 
   return (
-    <main className="bg-base-200 min-h-screen">
+    <main className="bg-base-200 min-h-screen px-8">
       <h1>Inventory Page</h1>
-      {user && <CategoryForm fetchCategories={fetchCategories} />}
-      <section className="grid grid-cols-3 gap-20 text-center">
+      <section className="grid grid-cols-3 gap-x-10 gap-y-5 text-center">
         {categories ? loaded() : loading()}
       </section>
+      {user && <CategoryForm fetchCategories={fetchCategories} />}
     </main>
   );
 };
