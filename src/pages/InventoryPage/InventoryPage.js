@@ -127,7 +127,7 @@ const InventoryPage = ({ user }) => {
                     autoFocus
                     className="input input-bordered input-sm w-1/2 mr-2 lg:w-2/3"
                   />
-                  <div>
+                  <div className="mt-2">
                     <button
                       type="submit"
                       className="btn btn-sm font-medium inline lg:mt-2 mr-4"

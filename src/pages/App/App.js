@@ -8,6 +8,7 @@ import InventoryPage from '../InventoryPage/InventoryPage';
 import AboutPage from '../AboutPage/AboutPage';
 import CategoryDetailPage from '../CategoryDetailPage/CategoryDetailPage';
 import FoodItemDetailPage from '../FoodItemDetailPage/FoodItemDetailPage';
+import Footer from '../../components/Footer';
 
 function App() {
   const [user, setUser] = useState(getUser());
@@ -37,6 +38,7 @@ function App() {
           ></Route>
         </Routes>
       </>
+      <Footer />
     </div>
   );
 }
