@@ -165,15 +165,34 @@ const FoodItemDetailPage = ({ user }) => {
             if (user && confirmDelete) {
               return (
                 <div>
-                  <p>Are you sure you want to delete {foodDetails.name}?</p>
-                  <button onClick={handleDelete}>Delete</button>
-                  <button onClick={handleCancelDelete}>Cancel</button>
+                  <p>
+                    Are you sure you want to delete{' '}
+                    <span className="capitalize italic">
+                      {foodDetails.name}
+                    </span>
+                    ?
+                  </p>
+                  <button
+                    onClick={handleDelete}
+                    className="btn btn-sm font-medium bg-error hover:bg-error"
+                  >
+                    Delete
+                  </button>
+                  <button
+                    onClick={handleCancelDelete}
+                    className="btn btn-sm font-medium bg-secondary hover:bg-secondary"
+                  >
+                    Cancel
+                  </button>
                   {error && <p>{error}</p>}
                 </div>
               );
             } else if (user && !confirmDelete) {
               return (
-                <button onClick={() => setConfirmDelete(true)}>
+                <button
+                  onClick={() => setConfirmDelete(true)}
+                  className="btn btn-sm font-medium bg-error hover:bg-error"
+                >
                   Delete {foodDetails.name}
                 </button>
               );
