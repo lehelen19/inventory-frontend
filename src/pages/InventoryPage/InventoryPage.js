@@ -81,11 +81,8 @@ const InventoryPage = ({ user }) => {
 
   const loaded = () => {
     return categories.map((category) => (
-      <article
-        key={category._id}
-        className="card w-80 h-40 m-2 bg-secondary shadow-xl"
-      >
-        <div className="card-body">
+      <article key={category._id} className="m-2 bg-secondary shadow-xl py-2">
+        <div>
           {(() => {
             if (user && deleteId === category._id) {
               return (
@@ -124,18 +121,22 @@ const InventoryPage = ({ user }) => {
             } else {
               return (
                 <>
-                  <h2 className="card-title">
-                    <Link
-                      to={`/categories/${category._id}`}
-                      className="tracking-wide"
-                    >
+                  <Link to={`/categories/${category._id}`}>
+                    <h2 className="text-xl font-semibold tracking-wide">
                       {category.name}
-                    </Link>
-                  </h2>
+                    </h2>
+                    <div className="flex justify-center m-4">
+                      <img
+                        src={process.env.PUBLIC_URL + 'img/grocery.png'}
+                        className="w-16"
+                        alt="A plant logo that directs you to the home page on click."
+                      />
+                    </div>
+                  </Link>
                   {user && (
-                    <div className="card-actions">
+                    <div className="py-2">
                       <button
-                        className="btn btn-sm"
+                        className="btn btn-sm mr-4"
                         onClick={() => handleEditStart(category._id)}
                       >
                         Edit
@@ -161,7 +162,7 @@ const InventoryPage = ({ user }) => {
     <main className="bg-base-200 min-h-screen">
       <h1>Inventory Page</h1>
       {user && <CategoryForm fetchCategories={fetchCategories} />}
-      <section className="flex flex-wrap">
+      <section className="grid grid-cols-3 gap-20 text-center">
         {categories ? loaded() : loading()}
       </section>
     </main>
