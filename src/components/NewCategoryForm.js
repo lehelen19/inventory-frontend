@@ -23,9 +23,6 @@ const CategoryForm = ({ fetchCategories }) => {
 
   return (
     <form onSubmit={handleSubmit} className="form-control max-w-sm inline">
-      <h3 className="italic text-center mb-4 text-lg font-semibold">
-        Add a new category
-      </h3>
       <label htmlFor="name" className="label-text">
         <span className="label-text m-2">Category name</span>
       </label>
