@@ -83,80 +83,80 @@ const InventoryPage = ({ user }) => {
     return categories.map((category) => (
       <article
         key={category._id}
-        className="m-2 bg-secondary shadow-xl py-2 rounded-md "
+        className="m-2 bg-secondary shadow-xl py-2 rounded-md"
       >
-        <div>
-          {(() => {
-            if (user && deleteId === category._id) {
-              return (
-                <div>
-                  <p>
-                    Are you sure you want to delete the {category.name}{' '}
-                    category?
-                  </p>
-                  <button onClick={() => handleConfirmDelete(category._id)}>
-                    Delete
+        {(() => {
+          if (user && deleteId === category._id) {
+            return (
+              <div>
+                <p>
+                  Are you sure you want to delete the {category.name} category?
+                </p>
+                <button onClick={() => handleConfirmDelete(category._id)}>
+                  Delete
+                </button>
+                <button onClick={() => setDeleteId(null)}>Cancel</button>
+                <p>{error}</p>
+              </div>
+            );
+          } else if (
+            user &&
+            editCategoryInput &&
+            editCategoryInput.id === category._id
+          ) {
+            return (
+              <div className="h-full flex flex-col justify-center">
+                <form onSubmit={handleEditSubmit}>
+                  <input
+                    type="text"
+                    name="name"
+                    value={editCategoryInput.name}
+                    onChange={handleEditChange}
+                    autoFocus
+                    className="input input-bordered input-sm"
+                  />
+                  <button className="btn btn-sm font-medium inline mt-2">
+                    Submit
                   </button>
-                  <button onClick={() => setDeleteId(null)}>Cancel</button>
-                  <p>{error}</p>
-                </div>
-              );
-            } else if (
-              user &&
-              editCategoryInput &&
-              editCategoryInput.id === category._id
-            ) {
-              return (
-                <>
-                  <form onSubmit={handleEditSubmit}>
-                    <input
-                      type="text"
-                      name="name"
-                      value={editCategoryInput.name}
-                      onChange={handleEditChange}
-                      autoFocus
+                </form>
+                <p>{error}</p>
+              </div>
+            );
+          } else {
+            return (
+              <>
+                <Link to={`/categories/${category._id}`}>
+                  <h2 className="text-xl font-semibold tracking-wide">
+                    {category.name}
+                  </h2>
+                  <div className="flex justify-center m-4">
+                    <img
+                      src={process.env.PUBLIC_URL + 'img/grocery.png'}
+                      className="w-16"
+                      alt="A plant logo that directs you to the home page on click."
                     />
-                    <button>Submit</button>
-                  </form>
-                  <p>{error}</p>
-                </>
-              );
-            } else {
-              return (
-                <>
-                  <Link to={`/categories/${category._id}`}>
-                    <h2 className="text-xl font-semibold tracking-wide">
-                      {category.name}
-                    </h2>
-                    <div className="flex justify-center m-4">
-                      <img
-                        src={process.env.PUBLIC_URL + 'img/grocery.png'}
-                        className="w-16"
-                        alt="A plant logo that directs you to the home page on click."
-                      />
-                    </div>
-                  </Link>
-                  {user && (
-                    <div className="py-2">
-                      <button
-                        className="btn btn-sm mr-4"
-                        onClick={() => handleEditStart(category._id)}
-                      >
-                        Edit
-                      </button>
-                      <button
-                        className="btn btn-sm"
-                        onClick={() => handleCheckDelete(category._id)}
-                      >
-                        Delete
-                      </button>
-                    </div>
-                  )}
-                </>
-              );
-            }
-          })()}
-        </div>
+                  </div>
+                </Link>
+                {user && (
+                  <div className="py-2">
+                    <button
+                      className="btn btn-sm mr-4"
+                      onClick={() => handleEditStart(category._id)}
+                    >
+                      Edit
+                    </button>
+                    <button
+                      className="btn btn-sm"
+                      onClick={() => handleCheckDelete(category._id)}
+                    >
+                      Delete
+                    </button>
+                  </div>
+                )}
+              </>
+            );
+          }
+        })()}
       </article>
     ));
   };
