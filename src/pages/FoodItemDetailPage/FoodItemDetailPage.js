@@ -75,26 +75,54 @@ const FoodItemDetailPage = ({ user }) => {
                     {foodDetails.serving_weight_grams} grams
                   </td>
                 </tr>
+                <tr>
+                  <th>Calories</th>
+                  <td>{foodDetails.nf_calories}</td>
+                </tr>
+                <tr>
+                  <th>Total fat</th>
+                  <td>{foodDetails.nf_total_fat}g</td>
+                </tr>
+                <tr>
+                  <th>Saturated fat</th>
+                  <td>{foodDetails.nf_saturated_fat}g</td>
+                </tr>
+                <tr>
+                  <th>Cholesterol</th>
+                  <td>{foodDetails.nf_cholesterol}mg</td>
+                </tr>
+                <tr>
+                  <th>Sodium</th>
+                  <td>{foodDetails.nf_sodium}mg</td>
+                </tr>
+                <tr>
+                  <th>Total carbohydrates</th>
+                  <td>{foodDetails.nf_total_carbohydrate}g</td>
+                </tr>
+                <tr>
+                  <th>Dietary fiber</th>
+                  <td>{foodDetails.nf_dietary_fiber}g</td>
+                </tr>
+                <tr>
+                  <th>Sugars</th>
+                  <td>{foodDetails.nf_sugars}g</td>
+                </tr>
+                <tr>
+                  <th>Protein</th>
+                  <td>{foodDetails.nf_protein}g</td>
+                </tr>
+                <tr>
+                  <th>Potassium</th>
+                  <td>{foodDetails.nf_potassium}mg</td>
+                </tr>
               </tbody>
             </table>
-            <p>
-              Serving size: {foodDetails.serving_qty} {foodDetails.serving_unit}{' '}
-              or {foodDetails.serving_weight_grams} grams
-            </p>
-            <p>Calories: {foodDetails.nf_calories}</p>
-            <p>Total fat: {foodDetails.nf_total_fat}g</p>
-            <p>Saturated fat: {foodDetails.nf_saturated_fat}g</p>
-            <p>Cholesterol: {foodDetails.nf_cholesterol}mg</p>
-            <p>Sodium: {foodDetails.nf_sodium}mg</p>
-            <p>Total carbohydrates: {foodDetails.nf_total_carbohydrate}g</p>
-            <p>Dietary fiber: {foodDetails.nf_dietary_fiber}g</p>
-            <p>Sugars: {foodDetails.nf_sugars}g</p>
-            <p>Protein: {foodDetails.nf_protein}g</p>
-            <p>Potassium: {foodDetails.nf_potassium}mg</p>
-            <img
-              src={`${foodDetails.photo.thumb}`}
-              alt={`Thumbnail of ${foodDetails.food_name}`}
-            />
+            <div>
+              <img
+                src={`${foodDetails.photo.thumb}`}
+                alt={`Thumbnail of ${foodDetails.food_name}`}
+              />
+            </div>
           </section>
         </div>
         {(() => {
