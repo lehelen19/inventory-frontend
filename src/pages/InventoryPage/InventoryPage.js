@@ -88,7 +88,7 @@ const InventoryPage = ({ user }) => {
         {(() => {
           if (user && deleteId === category._id) {
             return (
-              <div className="h-full flex flex-col justify-center">
+              <div className="min-h-full flex flex-col justify-center">
                 <p className="mb-2">
                   Are you sure you want to delete the{' '}
                   <span className="capitalize italic">{category.name}</span>{' '}
@@ -177,7 +177,7 @@ const InventoryPage = ({ user }) => {
     <main className="bg-base-200 px-8 pb-10">
       <div className="flex flex-col items-center">
         <h1 className="text-3xl font-bold pt-4 pb-2">Food Categories</h1>
-        <hr className="border-1 border-primary w-28" />
+        <hr className="border-1 border-primary w-28 mb-2" />
         {user && (
           <div className="collapse rounded-sm w-auto mb-2">
             <input type="checkbox" />
