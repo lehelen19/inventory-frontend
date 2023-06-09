@@ -130,8 +130,20 @@ const CategoryDetailPage = ({ user }) => {
                         onChange={handleEditChange}
                         className="input input-bordered input-sm w-1/3"
                       />
-                      <button className="btn btn-sm font-medium inline ml-2 bg-secondary hover:bg-secondary">
+                      <button
+                        type="submit"
+                        className="btn btn-sm font-medium inline ml-2 bg-secondary hover:bg-secondary"
+                      >
                         Save
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setEditingInput(null);
+                        }}
+                        className="btn btn-sm font-medium inline ml-2 bg-error hover:bg-error"
+                      >
+                        Cancel
                       </button>
                     </form>
                     <p>{error}</p>
