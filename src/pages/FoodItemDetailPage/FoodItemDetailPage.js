@@ -86,21 +86,25 @@ const FoodItemDetailPage = ({ user }) => {
   const loaded = () => {
     return (
       <>
-        <div>
-          <h1 className="text-3xl font-bold pt-4 pb-2 capitalize">
-            {foodDetails.name}
-          </h1>
+        <div className="flex flex-col items-center">
+          <div className="flex justify-center items-center">
+            <div className="w-24 mr-4 my-4 border-2 border-primary rounded-md">
+              <img
+                src={`${foodDetails.photo.thumb}`}
+                alt={`Thumbnail of ${foodDetails.food_name}`}
+                className="rounded-md"
+              />
+            </div>
+            <div>
+              <h1 className="text-3xl font-bold pt-4 pb-2 capitalize">
+                {foodDetails.name}
+              </h1>
+              <p className="bg-primary text-white p-1 mb-2 text-center">
+                {foodDetails.quantity} currently available
+              </p>
+            </div>
+          </div>
           <div>
-            <section>
-              <p>{foodDetails.quantity} currently available</p>
-              <div className="w-24">
-                <img
-                  src={`${foodDetails.photo.thumb}`}
-                  alt={`Thumbnail of ${foodDetails.food_name}`}
-                  className="rounded-md"
-                />
-              </div>
-            </section>
             <section>
               <h2 className="text-xl font-semibold">
                 Nutrition Facts for{' '}
@@ -109,7 +113,7 @@ const FoodItemDetailPage = ({ user }) => {
               <hr className="border-1 border-primary mx-4 my-2 w-48" />
               <table className="table table-sm max-w-2xl border-collapse">
                 <tbody>
-                  <tr className="border-b-1 border-gray-100">
+                  <tr>
                     <th className="w-1/3">Serving Size</th>
                     <td>
                       {foodDetails.serving_qty} {foodDetails.serving_unit} or{' '}
