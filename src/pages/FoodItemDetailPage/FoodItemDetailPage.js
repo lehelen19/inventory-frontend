@@ -65,32 +65,35 @@ const FoodItemDetailPage = ({ user }) => {
               <span className="capitalize">{foodDetails.food_name}</span>
             </h2>
             <hr className="border-1 border-primary mx-4 my-2 w-48" />
-            <table className="table max-w-2xl">
-              <thead></thead>
-              <tbody>
-                <tr>
-                  <th>Serving Size</th>
-                  <td>
-                    {foodDetails.serving_qty} {foodDetails.serving_unit} or{' '}
-                    {foodDetails.serving_weight_grams} grams
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <p>
-              Serving size: {foodDetails.serving_qty} {foodDetails.serving_unit}{' '}
-              or {foodDetails.serving_weight_grams} grams
-            </p>
-            <p>Calories: {foodDetails.nf_calories}</p>
-            <p>Total fat: {foodDetails.nf_total_fat}g</p>
-            <p>Saturated fat: {foodDetails.nf_saturated_fat}g</p>
-            <p>Cholesterol: {foodDetails.nf_cholesterol}mg</p>
-            <p>Sodium: {foodDetails.nf_sodium}mg</p>
-            <p>Total carbohydrates: {foodDetails.nf_total_carbohydrate}g</p>
-            <p>Dietary fiber: {foodDetails.nf_dietary_fiber}g</p>
-            <p>Sugars: {foodDetails.nf_sugars}g</p>
-            <p>Protein: {foodDetails.nf_protein}g</p>
-            <p>Potassium: {foodDetails.nf_potassium}mg</p>
+            <div>
+              <p>Serving size: </p>
+              <p>
+                {foodDetails.serving_qty} {foodDetails.serving_unit} or{' '}
+                {foodDetails.serving_weight_grams} grams
+              </p>
+              <article className="grid grid-cols-2">
+                <h3>Calories:</h3>
+                <p>{foodDetails.nf_calories}</p>
+              </article>
+              <h3>Total fat:</h3>
+              <p>{foodDetails.nf_total_fat}g</p>
+              <h3>Saturated fat:</h3>
+              <p>{foodDetails.nf_saturated_fat}g</p>
+              <h3>Cholesterol:</h3>
+              <p>{foodDetails.nf_cholesterol}mg</p>
+              <h3>Sodium:</h3>
+              <p>{foodDetails.nf_sodium}mg</p>
+              <h3>Total carbohydrates: </h3>
+              <p>{foodDetails.nf_total_carbohydrate}g</p>
+              <h3>Dietary fiber:</h3>
+              <p>{foodDetails.nf_dietary_fiber}g</p>
+              <h3>Sugars:</h3>
+              <p>{foodDetails.nf_sugars}g</p>
+              <h3>Protein:</h3>
+              <p>{foodDetails.nf_protein}g</p>
+              <h3>Potassium:</h3>
+              <p>{foodDetails.nf_h3otassium}mg</p>
+            </div>
             <img
               src={`${foodDetails.photo.thumb}`}
               alt={`Thumbnail of ${foodDetails.food_name}`}
