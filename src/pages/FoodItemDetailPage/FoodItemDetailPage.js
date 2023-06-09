@@ -107,11 +107,10 @@ const FoodItemDetailPage = ({ user }) => {
                 <span className="capitalize">{foodDetails.food_name}</span>
               </h2>
               <hr className="border-1 border-primary mx-4 my-2 w-48" />
-              <table className="table max-w-2xl">
-                <thead></thead>
+              <table className="table table-sm max-w-2xl border-collapse">
                 <tbody>
-                  <tr>
-                    <th>Serving Size</th>
+                  <tr className="border-b-1 border-gray-100">
+                    <th className="w-1/3">Serving Size</th>
                     <td>
                       {foodDetails.serving_qty} {foodDetails.serving_unit} or{' '}
                       {foodDetails.serving_weight_grams} grams
