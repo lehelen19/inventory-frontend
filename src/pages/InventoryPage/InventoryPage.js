@@ -81,7 +81,10 @@ const InventoryPage = ({ user }) => {
 
   const loaded = () => {
     return categories.map((category) => (
-      <article key={category._id} className="m-2 bg-secondary shadow-xl py-2">
+      <article
+        key={category._id}
+        className="m-2 bg-secondary shadow-xl py-2 rounded-md "
+      >
         <div>
           {(() => {
             if (user && deleteId === category._id) {
@@ -160,7 +163,7 @@ const InventoryPage = ({ user }) => {
 
   return (
     <main className="bg-base-200 min-h-screen px-8">
-      <h1>Inventory Page</h1>
+      <h1 className="text-3xl font-bold py-4 text-center">Food Categories</h1>
       <section className="grid grid-cols-3 gap-x-10 gap-y-5 text-center">
         {categories ? loaded() : loading()}
       </section>
