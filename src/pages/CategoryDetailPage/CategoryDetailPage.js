@@ -160,7 +160,7 @@ const CategoryDetailPage = ({ user }) => {
   };
 
   return (
-    <main className="bg-base-200 min-h-screen">
+    <main className="bg-base-200 h-100">
       {categoryDetails ? loaded() : loading()}
       <hr className="border-1 border-primary m-4" />
       <div className="text-center">
