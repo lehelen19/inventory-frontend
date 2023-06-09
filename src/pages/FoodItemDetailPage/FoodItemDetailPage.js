@@ -15,39 +15,7 @@ const FoodItemDetailPage = ({ user }) => {
   useEffect(() => {
     const fetchFoodDetails = async () => {
       try {
-        // const foundFoodDetails = await getFoodDetails(id);
-        const foundFoodDetails = {
-          name: 'Fat free greek yogurt',
-          quantity: 8,
-          _id: '648361859ad11a8c88955736',
-          createdAt: '2023-06-09T17:29:41.036Z',
-          updatedAt: '2023-06-09T17:29:41.036Z',
-          food_name: 'fat free greek yogurt',
-          brand_name: null,
-          serving_qty: 1,
-          serving_unit: 'oz',
-          serving_weight_grams: 28.35,
-          nf_calories: 23.25,
-          nf_total_fat: 0.04,
-          nf_saturated_fat: 0.03,
-          nf_cholesterol: 1.13,
-          nf_sodium: 9.36,
-          nf_total_carbohydrate: 3.42,
-          nf_dietary_fiber: 0.17,
-          nf_sugars: 3.2,
-          nf_protein: 2.28,
-          nf_potassium: 37.42,
-          nf_p: 32.04,
-          photo: {
-            thumb: 'https://nix-tag-images.s3.amazonaws.com/1814_thumb.jpg',
-            highres: 'https://nix-tag-images.s3.amazonaws.com/1814_highres.jpg',
-            is_user_uploaded: false,
-          },
-          sub_recipe: null,
-          class_code: null,
-          brick_code: null,
-          tag_id: null,
-        };
+        const foundFoodDetails = await getFoodDetails(id);
         setFoodDetails(foundFoodDetails);
       } catch {
         setError('Unable to fetch food details - try again later');
