@@ -109,7 +109,7 @@ const FoodItemDetailPage = ({ user }) => {
               Nutrition Facts for{' '}
               <span className="capitalize">{foodDetails.food_name}</span>
             </h2>
-            <hr className="border-1 border-primary mx-4 my-2 w-48" />
+            <hr className="border-1 border-primary mx-4 my-2 w-64" />
             <table className="table table-sm border-collapse text-center">
               <tbody>
                 <tr>

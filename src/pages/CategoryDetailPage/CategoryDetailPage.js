@@ -81,6 +81,7 @@ const CategoryDetailPage = ({ user }) => {
     return (
       <div className="overflow-x-auto flex flex-col items-center">
         <h1 className="text-3xl font-bold py-2">{categoryDetails.name}</h1>
+        <hr className="border-1 border-primary mx-4 mb-2 w-28" />
         <table className="table max-w-5xl">
           <thead>
             <tr className="uppercase">

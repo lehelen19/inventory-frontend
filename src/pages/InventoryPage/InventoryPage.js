@@ -163,7 +163,10 @@ const InventoryPage = ({ user }) => {
 
   return (
     <main className="bg-base-200 min-h-screen px-8">
-      <h1 className="text-3xl font-bold py-4 text-center">Food Categories</h1>
+      <div className="flex flex-col items-center">
+        <h1 className="text-3xl font-bold pt-4 pb-2">Food Categories</h1>
+        <hr className="border-1 border-primary mb-4 w-28" />
+      </div>
       <section className="grid grid-cols-3 gap-x-10 gap-y-5 text-center">
         {categories ? loaded() : loading()}
       </section>
