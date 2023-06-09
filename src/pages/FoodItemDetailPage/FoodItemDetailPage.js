@@ -61,10 +61,22 @@ const FoodItemDetailPage = ({ user }) => {
           <p>{foodDetails.quantity} currently available</p>
           <section>
             <h2 className="text-xl font-semibold">
-              Nutritional Value for{' '}
+              Nutrition Facts for{' '}
               <span className="capitalize">{foodDetails.food_name}</span>
             </h2>
             <hr className="border-1 border-primary mx-4 my-2 w-48" />
+            <table className="table max-w-2xl">
+              <thead></thead>
+              <tbody>
+                <tr>
+                  <th>Serving Size</th>
+                  <td>
+                    {foodDetails.serving_qty} {foodDetails.serving_unit} or{' '}
+                    {foodDetails.serving_weight_grams} grams
+                  </td>
+                </tr>
+              </tbody>
+            </table>
             <p>
               Serving size: {foodDetails.serving_qty} {foodDetails.serving_unit}{' '}
               or {foodDetails.serving_weight_grams} grams
