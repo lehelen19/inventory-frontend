@@ -82,7 +82,7 @@ const CategoryDetailPage = ({ user }) => {
       <div className="overflow-x-auto flex flex-col items-center">
         <h1 className="text-3xl font-bold py-2">{categoryDetails.name}</h1>
         <hr className="border-1 border-primary mx-4 mb-2 w-28" />
-        <table className="table max-w-5xl">
+        <table className="table table-sm md:table-md lg:table-lg max-w-5xl">
           <thead>
             <tr className="uppercase">
               <th>Name</th>
@@ -103,14 +103,14 @@ const CategoryDetailPage = ({ user }) => {
                         value={editingInput.name}
                         onChange={handleEditChange}
                         autoFocus
-                        className="input input-bordered input-sm mx-2"
+                        className="input input-bordered input-sm mr-2 w-1/3"
                       />
                       <input
                         type="number"
                         name="quantity"
                         value={editingInput.quantity}
                         onChange={handleEditChange}
-                        className="input input-bordered input-sm"
+                        className="input input-bordered input-sm w-1/3"
                       />
                       <button className="btn btn-sm font-medium inline ml-2 bg-secondary hover:bg-secondary">
                         Save
