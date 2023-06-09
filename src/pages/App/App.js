@@ -13,7 +13,7 @@ function App() {
   const [user, setUser] = useState(getUser());
 
   return (
-    <div>
+    <div className="bg-base-200 h-screen">
       <Navbar user={user} setUser={setUser} />
       <>
         <Routes>

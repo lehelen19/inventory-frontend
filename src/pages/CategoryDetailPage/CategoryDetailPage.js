@@ -79,7 +79,7 @@ const CategoryDetailPage = ({ user }) => {
 
   const loaded = () => {
     return (
-      <div className="overflow-x-auto flex flex-col items-center justify-center">
+      <div className="overflow-x-visible flex flex-col items-center justify-center">
         <h1 className="text-3xl font-bold py-2">{categoryDetails.name}</h1>
         <hr className="border-1 border-primary mt-1 w-28" />
         {user && (
@@ -174,7 +174,7 @@ const CategoryDetailPage = ({ user }) => {
   };
 
   return (
-    <main className="bg-base-200 h-100">
+    <main className="bg-base-200 pb-4">
       {categoryDetails ? loaded() : loading()}
     </main>
   );

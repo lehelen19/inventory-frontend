@@ -174,7 +174,7 @@ const InventoryPage = ({ user }) => {
   };
 
   return (
-    <main className="bg-base-200 min-h-100 px-8">
+    <main className="bg-base-200 min-h-100 px-8 pb-10">
       <div className="flex flex-col items-center">
         <h1 className="text-3xl font-bold pt-4 pb-2">Food Categories</h1>
         <hr className="border-1 border-primary w-28" />
