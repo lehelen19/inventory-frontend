@@ -79,11 +79,11 @@ const CategoryDetailPage = ({ user }) => {
 
   const loaded = () => {
     return (
-      <div className="overflow-x-auto">
-        <h1>{categoryDetails.name}</h1>
-        <table className="table">
+      <div className="overflow-x-auto flex flex-col items-center">
+        <h1 className="text-3xl font-bold py-2">{categoryDetails.name}</h1>
+        <table className="table max-w-5xl">
           <thead>
-            <tr>
+            <tr className="uppercase">
               <th>Name</th>
               <th>Quantity</th>
               <th></th>
@@ -120,7 +120,10 @@ const CategoryDetailPage = ({ user }) => {
                 ) : (
                   <>
                     <th>
-                      <Link to={`/items/${item._id}`} className="capitalize">
+                      <Link
+                        to={`/items/${item._id}`}
+                        className="capitalize hover:underline"
+                      >
                         {item.name}
                       </Link>
                     </th>
