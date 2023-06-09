@@ -104,103 +104,103 @@ const FoodItemDetailPage = ({ user }) => {
               </p>
             </div>
           </div>
-          <div>
-            <section>
-              <h2 className="text-xl font-semibold">
-                Nutrition Facts for{' '}
-                <span className="capitalize">{foodDetails.food_name}</span>
-              </h2>
-              <hr className="border-1 border-primary mx-4 my-2 w-48" />
-              <table className="table table-sm max-w-2xl border-collapse">
-                <tbody>
-                  <tr>
-                    <th className="w-1/3">Serving Size</th>
-                    <td>
-                      {foodDetails.serving_qty} {foodDetails.serving_unit} or{' '}
-                      {foodDetails.serving_weight_grams} grams
-                    </td>
-                  </tr>
-                  <tr>
-                    <th>Calories</th>
-                    <td>{foodDetails.nf_calories}</td>
-                  </tr>
-                  <tr>
-                    <th>Total fat</th>
-                    <td>{foodDetails.nf_total_fat}g</td>
-                  </tr>
-                  <tr>
-                    <th>Saturated fat</th>
-                    <td>{foodDetails.nf_saturated_fat}g</td>
-                  </tr>
-                  <tr>
-                    <th>Cholesterol</th>
-                    <td>{foodDetails.nf_cholesterol}mg</td>
-                  </tr>
-                  <tr>
-                    <th>Sodium</th>
-                    <td>{foodDetails.nf_sodium}mg</td>
-                  </tr>
-                  <tr>
-                    <th>Total carbohydrates</th>
-                    <td>{foodDetails.nf_total_carbohydrate}g</td>
-                  </tr>
-                  <tr>
-                    <th>Dietary fiber</th>
-                    <td>{foodDetails.nf_dietary_fiber}g</td>
-                  </tr>
-                  <tr>
-                    <th>Sugars</th>
-                    <td>{foodDetails.nf_sugars}g</td>
-                  </tr>
-                  <tr>
-                    <th>Protein</th>
-                    <td>{foodDetails.nf_protein}g</td>
-                  </tr>
-                  <tr>
-                    <th>Potassium</th>
-                    <td>{foodDetails.nf_potassium}mg</td>
-                  </tr>
-                </tbody>
-              </table>
-            </section>
-          </div>
-          {(() => {
-            if (user && confirmDelete) {
-              return (
-                <div>
-                  <p>
-                    Are you sure you want to delete{' '}
-                    <span className="capitalize italic">
-                      {foodDetails.name}
-                    </span>
-                    ?
-                  </p>
+          <section className="flex flex-col items-center">
+            <h2 className="text-xl font-semibold">
+              Nutrition Facts for{' '}
+              <span className="capitalize">{foodDetails.food_name}</span>
+            </h2>
+            <hr className="border-1 border-primary mx-4 my-2 w-48" />
+            <table className="table table-sm border-collapse text-center">
+              <tbody>
+                <tr>
+                  <th>Serving Size</th>
+                  <td>
+                    {foodDetails.serving_qty} {foodDetails.serving_unit} or{' '}
+                    {foodDetails.serving_weight_grams} grams
+                  </td>
+                </tr>
+                <tr>
+                  <th>Calories</th>
+                  <td>{foodDetails.nf_calories}</td>
+                </tr>
+                <tr>
+                  <th>Total fat</th>
+                  <td>{foodDetails.nf_total_fat}g</td>
+                </tr>
+                <tr>
+                  <th>Saturated fat</th>
+                  <td>{foodDetails.nf_saturated_fat}g</td>
+                </tr>
+                <tr>
+                  <th>Cholesterol</th>
+                  <td>{foodDetails.nf_cholesterol}mg</td>
+                </tr>
+                <tr>
+                  <th>Sodium</th>
+                  <td>{foodDetails.nf_sodium}mg</td>
+                </tr>
+                <tr>
+                  <th>Total carbohydrates</th>
+                  <td>{foodDetails.nf_total_carbohydrate}g</td>
+                </tr>
+                <tr>
+                  <th>Dietary fiber</th>
+                  <td>{foodDetails.nf_dietary_fiber}g</td>
+                </tr>
+                <tr>
+                  <th>Sugars</th>
+                  <td>{foodDetails.nf_sugars}g</td>
+                </tr>
+                <tr>
+                  <th>Protein</th>
+                  <td>{foodDetails.nf_protein}g</td>
+                </tr>
+                <tr>
+                  <th>Potassium</th>
+                  <td>{foodDetails.nf_potassium}mg</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <div className="mt-4 text-center">
+            {(() => {
+              if (user && confirmDelete) {
+                return (
+                  <>
+                    <p className="mb-2">
+                      Are you sure you want to delete{' '}
+                      <span className="capitalize italic">
+                        {foodDetails.name}
+                      </span>
+                      ?
+                    </p>
+                    <button
+                      onClick={handleDelete}
+                      className="btn btn-sm font-medium bg-error hover:bg-error mr-2"
+                    >
+                      Delete
+                    </button>
+                    <button
+                      onClick={handleCancelDelete}
+                      className="btn btn-sm font-medium bg-secondary hover:bg-secondary"
+                    >
+                      Cancel
+                    </button>
+                    {error && <p>{error}</p>}
+                  </>
+                );
+              } else if (user && !confirmDelete) {
+                return (
                   <button
-                    onClick={handleDelete}
+                    onClick={() => setConfirmDelete(true)}
                     className="btn btn-sm font-medium bg-error hover:bg-error"
                   >
-                    Delete
+                    Delete {foodDetails.name}
                   </button>
-                  <button
-                    onClick={handleCancelDelete}
-                    className="btn btn-sm font-medium bg-secondary hover:bg-secondary"
-                  >
-                    Cancel
-                  </button>
-                  {error && <p>{error}</p>}
-                </div>
-              );
-            } else if (user && !confirmDelete) {
-              return (
-                <button
-                  onClick={() => setConfirmDelete(true)}
-                  className="btn btn-sm font-medium bg-error hover:bg-error"
-                >
-                  Delete {foodDetails.name}
-                </button>
-              );
-            }
-          })()}
+                );
+              }
+            })()}
+          </div>
         </div>
       </>
     );
