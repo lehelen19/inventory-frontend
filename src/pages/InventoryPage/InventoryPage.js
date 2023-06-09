@@ -130,7 +130,7 @@ const InventoryPage = ({ user }) => {
                   <div className="mt-2">
                     <button
                       type="submit"
-                      className="btn btn-sm font-medium inline lg:mt-2 mr-4"
+                      className="btn btn-sm font-medium inline lg:mt-2 mr-4 bg-green-600 hover:bg-green-600"
                     >
                       Save
                     </button>
