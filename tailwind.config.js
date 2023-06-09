@@ -26,5 +26,12 @@ module.exports = {
       },
     ],
   },
+  theme: {
+    extend: {
+      height: {
+        100: 'calc(100vh - 4rem)',
+      },
+    },
+  },
   plugins: [require('daisyui')],
 };
