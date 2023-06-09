@@ -110,7 +110,7 @@ const FoodItemDetailPage = ({ user }) => {
               <span className="capitalize">{foodDetails.food_name}</span>
             </h2>
             <hr className="border-1 border-primary mx-4 my-4 w-64" />
-            <table className="table table-xs border-collapse text-center">
+            <table className="table table-sm border-collapse text-center">
               <tbody>
                 <tr>
                   <th>Serving Size</th>

@@ -117,7 +117,7 @@ const InventoryPage = ({ user }) => {
             editCategoryInput.id === category._id
           ) {
             return (
-              <div className="h-full flex flex-col justify-center">
+              <div className="h-full flex flex-col justify-center mx-2">
                 <form onSubmit={handleEditSubmit}>
                   <input
                     type="text"
@@ -125,9 +125,9 @@ const InventoryPage = ({ user }) => {
                     value={editCategoryInput.name}
                     onChange={handleEditChange}
                     autoFocus
-                    className="input input-bordered input-sm"
+                    className="input input-bordered input-sm w-1/2 mr-2 lg:w-2/3"
                   />
-                  <button className="btn btn-sm font-medium inline mt-2">
+                  <button className="btn btn-sm font-medium inline lg:mt-2">
                     Submit
                   </button>
                 </form>
