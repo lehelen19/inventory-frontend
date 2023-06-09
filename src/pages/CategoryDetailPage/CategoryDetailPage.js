@@ -92,7 +92,7 @@ const CategoryDetailPage = ({ user }) => {
           </thead>
           <tbody>
             {categoryDetails.foodItems.map((item) => (
-              <tr key={item._id}>
+              <tr key={item._id} className=" hover:bg-amber-50">
                 {user && editingInput && editingInput._id === item._id ? (
                   <td colSpan={4}>
                     <form onSubmit={handleEditSubmit}>
@@ -111,7 +111,7 @@ const CategoryDetailPage = ({ user }) => {
                         onChange={handleEditChange}
                         className="input input-bordered input-sm"
                       />
-                      <button className="btn btn-xs font-medium inline ml-2 bg-secondary hover:bg-secondary">
+                      <button className="btn btn-sm font-medium inline ml-2 bg-secondary hover:bg-secondary">
                         Save
                       </button>
                     </form>
@@ -129,7 +129,7 @@ const CategoryDetailPage = ({ user }) => {
                       {user && (
                         <button
                           onClick={() => handleEditStart(item._id)}
-                          className="btn btn-xs font-medium bg-secondary hover:bg-secondary"
+                          className="btn btn-sm font-medium bg-secondary hover:bg-secondary"
                         >
                           Edit
                         </button>
@@ -139,7 +139,7 @@ const CategoryDetailPage = ({ user }) => {
                       {user && (
                         <button
                           onClick={() => handleDeleteFoodItem(item._id)}
-                          className="btn btn-xs font-medium bg-secondary hover:bg-secondary"
+                          className="btn btn-sm font-medium bg-secondary hover:bg-secondary"
                         >
                           Delete
                         </button>
