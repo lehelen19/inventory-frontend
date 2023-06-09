@@ -22,18 +22,26 @@ const CategoryForm = ({ fetchCategories }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="name">Category name</label>
+    <form onSubmit={handleSubmit} className="form-control max-w-sm inline">
+      <h3 className="italic text-center mb-4 text-lg font-semibold">
+        Add a new category
+      </h3>
+      <label htmlFor="name" className="label-text">
+        <span className="label-text m-2">Category name</span>
+      </label>
       <input
         type="text"
-        placeholder="Category name..."
+        placeholder="Fruits"
         name="name"
         id="name"
         value={categoryName}
         onChange={handleChange}
         required
+        className="input input-bordered input-sm"
       ></input>
-      <button>Add Category</button>
+      <button className="btn btn-sm font-medium bg-secondary hover:bg-secondary ml-2">
+        Add Category
+      </button>
       <p>{error}</p>
     </form>
   );

@@ -80,7 +80,7 @@ const CategoryDetailPage = ({ user }) => {
   const loaded = () => {
     return (
       <div className="overflow-x-auto flex flex-col items-center">
-        <h1 className="text-3xl font-bold py-4">{categoryDetails.name}</h1>
+        <h1 className="text-3xl font-bold py-2">{categoryDetails.name}</h1>
         <table className="table max-w-5xl">
           <thead>
             <tr className="uppercase">
