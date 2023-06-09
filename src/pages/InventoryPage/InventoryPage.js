@@ -88,15 +88,27 @@ const InventoryPage = ({ user }) => {
         {(() => {
           if (user && deleteId === category._id) {
             return (
-              <div>
-                <p>
-                  Are you sure you want to delete the {category.name} category?
+              <div className="h-full flex flex-col justify-center">
+                <p className="mb-2">
+                  Are you sure you want to delete the{' '}
+                  <span className="capitalize italic">{category.name}</span>{' '}
+                  category?
                 </p>
-                <button onClick={() => handleConfirmDelete(category._id)}>
-                  Delete
-                </button>
-                <button onClick={() => setDeleteId(null)}>Cancel</button>
-                <p>{error}</p>
+                <div>
+                  <button
+                    onClick={() => handleConfirmDelete(category._id)}
+                    className="btn btn-sm font-medium bg-error hover:bg-error mr-2"
+                  >
+                    Delete
+                  </button>
+                  <button
+                    onClick={() => setDeleteId(null)}
+                    className="btn btn-sm font-medium bg-green-600 hover:bg-green-600"
+                  >
+                    Cancel
+                  </button>
+                  <p>{error}</p>
+                </div>
               </div>
             );
           } else if (
