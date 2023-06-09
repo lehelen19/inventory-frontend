@@ -79,9 +79,23 @@ const CategoryDetailPage = ({ user }) => {
 
   const loaded = () => {
     return (
-      <div className="overflow-x-auto flex flex-col items-center">
+      <div className="overflow-x-auto flex flex-col items-center justify-center">
         <h1 className="text-3xl font-bold py-2">{categoryDetails.name}</h1>
-        <hr className="border-1 border-primary mx-4 mb-2 w-28" />
+        <hr className="border-1 border-primary mt-1 w-28" />
+        {user && (
+          <div className="collapse rounded-sm w-auto">
+            <input type="checkbox" />
+            <div className="text-center collapse-title pr-0">
+              <h3 className="text-lg font-semibold">Add a food item</h3>
+            </div>
+            <div className="collapse-content">
+              <NewFoodForm
+                id={id}
+                fetchCategoryDetails={fetchCategoryDetails}
+              />
+            </div>
+          </div>
+        )}
         <table className="table table-sm md:table-md lg:table-lg max-w-5xl">
           <thead>
             <tr className="uppercase">
@@ -162,12 +176,6 @@ const CategoryDetailPage = ({ user }) => {
   return (
     <main className="bg-base-200 h-100">
       {categoryDetails ? loaded() : loading()}
-      <hr className="border-1 border-primary m-4" />
-      <div className="text-center">
-        {user && (
-          <NewFoodForm id={id} fetchCategoryDetails={fetchCategoryDetails} />
-        )}
-      </div>
     </main>
   );
 };

@@ -28,10 +28,7 @@ const NewFoodForm = ({ id, fetchCategoryDetails }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="form-control max-w-sm inline">
-      <h3 className="italic text-center mb-4 text-lg font-semibold">
-        Add a food item
-      </h3>
+    <form onSubmit={handleSubmit} className="form-control inline">
       <label htmlFor="foodName">
         <span className="label-text m-2">Food item name</span>
       </label>

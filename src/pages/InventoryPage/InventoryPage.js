@@ -177,16 +177,18 @@ const InventoryPage = ({ user }) => {
     <main className="bg-base-200 min-h-100 px-8">
       <div className="flex flex-col items-center">
         <h1 className="text-3xl font-bold pt-4 pb-2">Food Categories</h1>
-        <hr className="border-1 border-primary mb-4 w-28" />
-        <div className="collapse rounded-sm w-auto mb-2">
-          <input type="checkbox" />
-          <div className="text-center collapse-title">
-            <h3 className="text-lg font-semibold">Add a new category</h3>
+        <hr className="border-1 border-primary w-28" />
+        {user && (
+          <div className="collapse rounded-sm w-auto mb-2">
+            <input type="checkbox" />
+            <div className="text-center collapse-title pr-0">
+              <h3 className="text-lg font-semibold">Add a new category</h3>
+            </div>
+            <div className="collapse-content text-center">
+              <CategoryForm fetchCategories={fetchCategories} />
+            </div>
           </div>
-          <div className="collapse-content text-center">
-            {user && <CategoryForm fetchCategories={fetchCategories} />}
-          </div>
-        </div>
+        )}
       </div>
       <section className="grid grid-cols-3 gap-x-10 gap-y-5 text-center">
         {categories ? loaded() : loading()}

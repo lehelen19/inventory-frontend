@@ -37,7 +37,7 @@ const CategoryForm = ({ fetchCategories }) => {
         className="input input-bordered input-sm"
       ></input>
       <button className="btn btn-sm font-medium bg-secondary hover:bg-secondary ml-2">
-        Add Category
+        Submit
       </button>
       <p>{error}</p>
     </form>
