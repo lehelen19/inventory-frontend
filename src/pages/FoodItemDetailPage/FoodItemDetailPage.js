@@ -207,7 +207,7 @@ const FoodItemDetailPage = ({ user }) => {
   };
 
   return (
-    <main className="bg-base-200 h-100">
+    <main className="bg-base-200 pb-10">
       {foodDetails ? loaded() : loading()}
     </main>
   );

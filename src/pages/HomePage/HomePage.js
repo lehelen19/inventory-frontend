@@ -5,7 +5,7 @@ const HomePage = () => {
   const [ref, loaded, onLoad] = useImageLoaded();
 
   return (
-    <main className="hero min-h-100 bg-base-200 px-8 pb-10">
+    <main className="hero bg-base-200 px-8 pb-4">
       <div className="hero-content flex-col">
         <h1 className="text-4xl font-bold py-6">
           Welcome to the Yolo County Food Bank
