@@ -55,28 +55,35 @@ const FoodItemDetailPage = ({ user }) => {
     return (
       <>
         <div>
-          <h1>{foodDetails.name}</h1>
-          <p>Quantity: {foodDetails.quantity}</p>
-
-          <h2>Nutritional Value for {foodDetails.food_name}</h2>
-          <p>
-            Serving size: {foodDetails.serving_qty} {foodDetails.serving_unit}{' '}
-            or {foodDetails.serving_weight_grams} grams
-          </p>
-          <p>Calories: {foodDetails.nf_calories}</p>
-          <p>Total fat: {foodDetails.nf_total_fat}g</p>
-          <p>Saturated fat: {foodDetails.nf_saturated_fat}g</p>
-          <p>Cholesterol: {foodDetails.nf_cholesterol}mg</p>
-          <p>Sodium: {foodDetails.nf_sodium}mg</p>
-          <p>Total carbohydrates: {foodDetails.nf_total_carbohydrate}g</p>
-          <p>Dietary fiber: {foodDetails.nf_dietary_fiber}g</p>
-          <p>Sugars: {foodDetails.nf_sugars}g</p>
-          <p>Protein: {foodDetails.nf_protein}g</p>
-          <p>Potassium: {foodDetails.nf_potassium}mg</p>
-          <img
-            src={`${foodDetails.photo.thumb}`}
-            alt={`Thumbnail of ${foodDetails.food_name}`}
-          />
+          <h1 className="text-3xl font-bold py-4 capitalize">
+            {foodDetails.name}
+          </h1>
+          <p>{foodDetails.quantity} currently available</p>
+          <section>
+            <h2 className="text-xl font-semibold">
+              Nutritional Value for{' '}
+              <span className="capitalize">{foodDetails.food_name}</span>
+            </h2>
+            <hr className="border-1 border-primary mx-4 my-2 w-48" />
+            <p>
+              Serving size: {foodDetails.serving_qty} {foodDetails.serving_unit}{' '}
+              or {foodDetails.serving_weight_grams} grams
+            </p>
+            <p>Calories: {foodDetails.nf_calories}</p>
+            <p>Total fat: {foodDetails.nf_total_fat}g</p>
+            <p>Saturated fat: {foodDetails.nf_saturated_fat}g</p>
+            <p>Cholesterol: {foodDetails.nf_cholesterol}mg</p>
+            <p>Sodium: {foodDetails.nf_sodium}mg</p>
+            <p>Total carbohydrates: {foodDetails.nf_total_carbohydrate}g</p>
+            <p>Dietary fiber: {foodDetails.nf_dietary_fiber}g</p>
+            <p>Sugars: {foodDetails.nf_sugars}g</p>
+            <p>Protein: {foodDetails.nf_protein}g</p>
+            <p>Potassium: {foodDetails.nf_potassium}mg</p>
+            <img
+              src={`${foodDetails.photo.thumb}`}
+              alt={`Thumbnail of ${foodDetails.food_name}`}
+            />
+          </section>
         </div>
         {(() => {
           if (user && confirmDelete) {
