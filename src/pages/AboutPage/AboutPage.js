@@ -1,14 +1,17 @@
 const AboutPage = () => {
   return (
     <main>
-      <h1 className="text-3xl font-bold text-center mt-4 mb-6">
-        About the Yolo Food Bank
-      </h1>
-      <div className="sm:grid grid-cols-2 gap-5 items-center mx-6">
+      <div className="flex flex-col items-center">
+        <h1 className="text-3xl font-bold text-center mt-4 mb-2">
+          About the Yolo Food Bank
+        </h1>
+        <hr className="border-1 border-primary w-28 mb-5" />
+      </div>
+      <div className="sm:grid grid-cols-2 items-center mx-6">
         <img
           src={process.env.PUBLIC_URL + '/img/yolo.jpg'}
           alt="The Yolo Food Bank building"
-          className="max-w-2/3"
+          className="max-w-2/3 border-2 border-primary rounded-md"
         />
         <div className="flex flex-col items-center text-center">
           <section className="my-1">
@@ -47,11 +50,11 @@ const AboutPage = () => {
       </div>
       <div className="m-6">
         <p>
-          Per the official website, Yolo Food Bank coordinates the recovery,
-          storage, and distribution of more than 8 million pounds of food
-          annually. We collaborate with a network of grocers and retailers,
-          farmers and distributors, the private sector and governmental
-          agencies, and 84 partner agencies countywide.
+          The Yolo Food Bank coordinates the recovery, storage, and distribution
+          of more than 8 million pounds of food annually. We collaborate with a
+          network of grocers and retailers, farmers and distributors, the
+          private sector and governmental agencies, and 84 partner agencies
+          countywide.
         </p>
         <p>
           Our other programs include Eat Well Yolo, Eat Home Yolo, and Kids
@@ -60,11 +63,14 @@ const AboutPage = () => {
             href="https://yolofoodbank.org/"
             target="_blank"
             rel="noreferrer"
-            className="underline hover:italic"
+            className="text-blue-600 underline hover:italic"
           >
             main website
           </a>
           .
+        </p>
+        <p className="text-sm italic">
+          Content credited to the Yolo Food Bank website.
         </p>
       </div>
     </main>
