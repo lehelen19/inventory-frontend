@@ -1,6 +1,6 @@
 import sendRequest from '../send-request';
 
-const BASE_URL = '/api';
+const BASE_URL = 'https://foodbankinventory.herokuapp.com/api';
 
 export function getFoodDetails(id) {
   return sendRequest(`${BASE_URL}/items/${id}`);
