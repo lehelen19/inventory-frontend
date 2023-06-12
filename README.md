@@ -51,7 +51,7 @@ Inspired by the Yolo Food Bank.
 
 ## Resources
 
-- [Nutrionix API V2](https://trackapi.nutritionix.com/docs/#/)
+- [Nutritionix API V2](https://trackapi.nutritionix.com/docs/#/)
 - [Realtime Colors](https://realtimecolors.com/?colors=000000-ffffff-374f22-99c79b-c0c18f)
 - [Favicon (food icons created by Freepik - Flaticon)](https://www.flaticon.com/free-icons/food)
 - [Grocery bag png in category card](https://www.flaticon.com/free-icons/goods)
