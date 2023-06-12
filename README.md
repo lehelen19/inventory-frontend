@@ -1,6 +1,6 @@
 <a name="readme-top"></a>
 
-<h1 align="center"><a href="https://guileless-starlight-786809.netlify.app/">Food Bank Inventory App</a></h1>
+<h1 align="center"><a href="https://foodbankinventory.netlify.app/">Food Bank Inventory App</a></h1>
 
 <!-- TABLE OF CONTENTS -->
 <details>
@@ -39,7 +39,7 @@ Inspired by the Yolo Food Bank.
 
 ## Getting Started
 
-- [Website](https://guileless-starlight-786809.netlify.app/)
+- [Website](https://foodbankinventory.netlify.app/)
 - [Trello board](https://trello.com/b/og1a6WsW/food-bank-inventory)
 
 ## Next Steps
